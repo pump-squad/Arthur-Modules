@@ -1,17 +1,25 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
-  "engines": {
-    "node": ">=6.13.0"
-  },
+  "name": "arthur-modules",
+  "version": "1.0.0",
+  "description": "> Project description",
+  "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurKimGl19/Arthur-Modules.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurKimGl19/Arthur-Modules/issues"
+  },
+  "homepage": "https://github.com/ArthurKimGl19/Arthur-Modules#readme",
   "dependencies": {
-  },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "faker": "^4.1.0",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.3"
   }
 }
