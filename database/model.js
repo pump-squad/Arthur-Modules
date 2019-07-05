@@ -22,12 +22,7 @@ var reviewSchema =  new mongoose.Schema({
     bodyType: String,
     fit: String
   },
-  tag: {
-    top10: String,
-    top50: String,
-    top500: String,
-    enterDraw: String
-  }
+  tag: String
 });
 
 // var person = mongoose.model('')

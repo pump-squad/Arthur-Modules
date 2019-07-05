@@ -2,7 +2,7 @@
 //title
 var titleList = {
   positive:
-    ['Just amazing', 'Simply the best', "Best Pair I've Owned", 'Excellent Craftmanship',
+    ['Just amazing', 'Simply the best', 'Amazing quality', 'Excellent Craftmanship',
       'Excellent', 'Great Fit', 'Looks Great', 'Great Purchase',
       'Best Piece of Clothing I Own', 'Versatile', 'Love this', 'Love it!',
       'Very versatile', 'Using it everyday', 'Very comfy', 'Worth the money!',
@@ -39,12 +39,13 @@ var consList =
     'uncomfortable', 'not durable', 'itchy', , 'not comfy',
     'subpar stitching', 'fades easily', 'runs too small', 'fabric pilling',
     'weak fabric', 'bad customer service', 'poor design', 'price',
-    'not many color choices', 'too big', 'falling apart', "didn't last long"];
+    'not many color choices', 'too big', 'falling apart', 'not long lasting'];
 //recommended //yes or no
 var recommendedList = ['yes', 'no'];
 //helpful // yes or no
 var helpfulList = ['yes', 'no'];
 
+var languageList = ['English'];
 //age
 var ageList = ['Under 18', '18-24', '25-34', '35-44', '45-54', '55-64', 'Over 65'];
 //gender
@@ -54,6 +55,8 @@ var bodyTypeList = ['Petite', 'Lean', 'Slim', 'Athletic', 'Solid', 'Curvy'];
 //fit
 var fitList = ['Fits Very Small', 'Fits Small', 'True to Size', 'Fits Large', 'Fits Very Large'];
 
+var tagList = ['Top10', 'Top50', 'Top100', 'Top500', 'EnterDraw'];
+
 module.exports = {
   titleList,
   commentList,
@@ -62,8 +65,10 @@ module.exports = {
   consList,
   recommendedList,
   helpfulList,
+  languageList,
   ageList,
   genderList,
   bodyTypeList,
-  fitList
+  fitList,
+  tagList
 }
