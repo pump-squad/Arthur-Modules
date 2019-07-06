@@ -32,6 +32,18 @@ var getTitle = (starCount) => {
   }
 }
 //comment function
+var createComment = () => {
+  var count = Math.round((Math.random() * (1 - 10) + 10));
+  if (count < 6) {
+    return `${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()}`;
+  } else if (count < 7) {
+    return `${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()}`;
+  } else if (count < 9) {
+    return `${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()}`;
+  } else {
+    return `${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()} ${faker.lorem.sentence()}`;
+  }
+}
 
 var getActivity = () => {
   var activities = seedData.activityList;
@@ -60,14 +72,12 @@ var getPros = (starCount) => {
   }
   //if high star, generate more pros
   if (starCount >= 4) {
-    console.log('inside')
     if (count < 6) {
       return `${randomPros()}, ${randomPros()}, ${randomPros()}`;
     } else {
       return `${randomPros()}, ${randomPros()}`;
     }
   } else {
-    console.log('else')
     //if lower stars generate less pros
     if (count > 9) {
       return `${randomPros()}`
@@ -99,7 +109,7 @@ var getCons = (starCount) => {
     }
   }
 }
-var recommend = (starCount) => {
+var getRecommend = (starCount) => {
   var rec = seedData.recommendedList;
   var count = Math.round((Math.random() * (1 - 10) + 10));
   if (starCount => 4) {
@@ -113,7 +123,7 @@ var recommend = (starCount) => {
   }
 }
 
-var helpful = (starCount) => {
+var getHelpful = (starCount) => {
   var helpful = seedData.helpfulList;
   var count = Math.round((Math.random() * (1 - 10) + 10));
   if (starCount => 4) {
@@ -125,10 +135,6 @@ var helpful = (starCount) => {
   } else {
     return helpful[1];
   }
-}
-
-var language = () => {
-  return seedData.languageList[0];
 }
 
 var createNewDate = () => {
@@ -158,8 +164,17 @@ var createNewDate = () => {
   return finalNewDate;
 }
 
-//language (mostly in english, will have a few diff languages)
-
+var getLanguage = () => {
+  var language = seedData.languageList;
+  var count = Math.round((Math.random() * (1 - 100) + 100));
+  if (count < 85){
+    return language[0];
+  } else {
+    //create new subList without English
+    var subList = language.splice(1);
+    return subList[Math.floor(Math.random() * subList.length)];
+  }
+}
 //userName random
 var createNewUserName = () => {
   return faker.internet.userName();
@@ -214,18 +229,38 @@ var createFit = () => {
 var createTag = () => {
   var count = Math.round((Math.random() * (1 - 100) + 100));
   var tag = seedData.tagList;
-  if (count < 80){
+  if (count < 80) {
     return '';
-  } else if (count < 85){
+  } else if (count < 85) {
     return tag[3];
-  } else if (count < 90){
+  } else if (count < 90) {
     return tag[4];
-  } else if (count < 93){
+  } else if (count < 93) {
     return tag[2];
-  } else if (count < 96){
+  } else if (count < 96) {
     return tag[1];
   } else {
     return tag[0];
   }
 }
 
+module.exports = {
+  getStarCount,
+  createComment,
+  getActivity,
+  getLanguage,
+  createNewDate,
+  createNewUserName,
+  createFrom,
+  createAge,
+  createGender,
+  createBodyType,
+  createFit,
+  createTag,
+  //getStarCount dependent
+  getTitle,
+  getPros,
+  getCons,
+  getRecommend,
+  getHelpful
+}

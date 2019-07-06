@@ -16,10 +16,7 @@ var titleList = {
       'Poor Design', 'Poor Insulation', 'Not comfortable', 'Low Quality']
 }
 //comment
-var commentList = [
 
-
-];
 //activity - pick from list //Rigourous Coding in Array*
 var activityList =
   ['Urban', 'Daily commute to work', 'Hiking', 'Dog walking',
@@ -45,7 +42,10 @@ var recommendedList = ['yes', 'no'];
 //helpful // yes or no
 var helpfulList = ['yes', 'no'];
 
-var languageList = ['English'];
+var languageList =
+  ['English', 'German', 'Danish', 'Spanish',
+    'French', 'Italian', 'Japanese', 'Norwegian',
+    'Swedish', 'Chinese'];
 //age
 var ageList = ['Under 18', '18-24', '25-34', '35-44', '45-54', '55-64', 'Over 65'];
 //gender
@@ -59,7 +59,7 @@ var tagList = ['Top10', 'Top50', 'Top100', 'Top500', 'EnterDraw'];
 
 module.exports = {
   titleList,
-  commentList,
+  // commentList,
   activityList,
   prosList,
   consList,
