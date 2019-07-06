@@ -4,6 +4,7 @@ const db = require('./index.js');
 var reviewSchema = new mongoose.Schema({
   comment: {
     id: Number,
+    clothingType: String,
     starCount: Number,
     title: String,
     comment: String,

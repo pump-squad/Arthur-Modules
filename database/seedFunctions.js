@@ -201,11 +201,6 @@ var createAge = () => {
   var index = Math.floor(Math.random() * age.length);
   return age[index];
 }
-var createGender = () => {
-  var gender = seedData.genderList;
-  var index = Math.floor(Math.random() * gender.length);
-  return gender[index];
-}
 var createBodyType = () => {
   var body = seedData.bodyTypeList;
   var index = Math.floor(Math.random() * body.length);
@@ -253,7 +248,6 @@ module.exports = {
   createNewUserName,
   createFrom,
   createAge,
-  createGender,
   createBodyType,
   createFit,
   createTag,

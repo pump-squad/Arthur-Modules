@@ -48,8 +48,6 @@ var languageList =
     'Swedish', 'Chinese'];
 //age
 var ageList = ['Under 18', '18-24', '25-34', '35-44', '45-54', '55-64', 'Over 65'];
-//gender
-var genderList = ['Male', 'Female'];
 //body type
 var bodyTypeList = ['Petite', 'Lean', 'Slim', 'Athletic', 'Solid', 'Curvy'];
 //fit
@@ -67,7 +65,6 @@ module.exports = {
   helpfulList,
   languageList,
   ageList,
-  genderList,
   bodyTypeList,
   fitList,
   tagList
