@@ -10,7 +10,7 @@ const port = 4000;
 //install middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, './client/dist/')))
+app.use(express.static(path.join(__dirname, '../client/dist/')))
 
 //use api routes
 
@@ -30,7 +30,7 @@ app.get('/reviews/ids/:id', (req, res) => {
 app.get('/reviews/product', (req, res) => {
 
   dbHelpers.getReviews(req.body.name, req.body.gender, (err, data) => {
-    if (err){
+    if (err) {
       res.status(400).send('get Product Failed ', err);
     } else {
       res.status(200).send(data);
