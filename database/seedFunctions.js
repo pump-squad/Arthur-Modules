@@ -114,7 +114,7 @@ var getRecommend = (starCount) => {
   var count = Math.round((Math.random() * (1 - 10) + 10));
   if (starCount => 4) {
     if (count < 6) {
-      return rec[0]
+      return rec[0];
     } else {
       return rec[1];
     }

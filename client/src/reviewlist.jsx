@@ -10,12 +10,26 @@ var ReviewList = (props) =>{
     updatedList.push(reviews[i]);
   }
   console.log('updated list ', updatedList)
+  //store pages
+  var pages = [];
+  var countDivide = Math.floor(reviewCount/10);
+  for (var i = 1; i <= countDivide; i++){
+    pages.push(i);
+  }
+  console.log('pages ', pages)
   return (
     <div className='reviewList'>
       {
-        updatedList.map((review) => {
+        updatedList.map((review, index) => {
           return (
-          <Review review={review}/>
+          <Review review={review} key={index}/>
+          )
+        })
+      }
+      { 
+        pages.map((page, index) => {
+          return (
+            <li key={index}>{page}</li>
           )
         })
       }

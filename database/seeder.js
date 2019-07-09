@@ -42,7 +42,7 @@ for (var i = 0; i < 800; i++) {
     activity: functions.getActivity(),
     pros: functions.getPros(stars),
     cons: functions.getCons(stars),
-    recommend: functions.getRecommend(stars),
+    recommended: functions.getRecommend(stars),
     helpful: functions.createHelpful(),
     unhelpful: functions.createUnhelpful(),
     date: functions.createNewDate(),

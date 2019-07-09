@@ -1,13 +1,14 @@
 import React from 'react';
 import Search from './search.jsx';
 import axios from 'axios';
-import ReviewList from './reviewlist.jsx';
+import ReviewList from './reviewList.jsx';
+import WriteReview from './writeReview.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewCount: 10,
+      reviewCount: '',
       searchValue: '',
       keyWords:
         ['jacket', 'hoody', 'vest', 'coat',
@@ -16,21 +17,24 @@ class App extends React.Component {
           'pant', 'bib', 'tight', 'knicker',
           'bottom', 'boxer', 'short', 'skort',
           'dress'],
-      reviews: []
+      reviews: [],
+      writeReviewClicked: false
     }
-    //create onSubmit to handle Submit Functionality in SearchBar Component
+    // create onSubmit to handle Submit Functionality in SearchBar Component
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getSearchValue = this.getSearchValue.bind(this);
     this.generateNameGenderAfterSubmit = this.generateNameGenderAfterSubmit.bind(this);
     this.get = this.get.bind(this);
     this.generateRandomReviewNumber = this.generateRandomReviewNumber.bind(this);
+    this.clickWriteReview = this.clickWriteReview.bind(this);
   }
+
   handleSubmit(event) {
     event.preventDefault();
     console.log('Current SearchValue ', this.state.searchValue);
     //will fire off get request
     this.get();
-    // this.generateRandomReviewNumber();
+    this.generateRandomReviewNumber();
   }
 
   getSearchValue(value) {
@@ -80,10 +84,24 @@ class App extends React.Component {
     this.setState({ reviewCount: count }, () => { console.log('Review Count ', count) });
   }
 
-  componentDidMount() {
+  clickWriteReview(){
+    this.setState({ writeReviewClicked: true}, () => {'Write Review Clicked!'})
   }
 
+  componentDidMount() {
+  }
+  
+  
+
   render() {
+    const writeReview = this.state.writeReviewClicked;
+    let page;
+
+    if (writeReview){
+      <WriteReview />
+    } else {
+      <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews}/>
+    }
     return (
       <div className='delete-when-integrate'>
         <div id='search-bar'>
@@ -105,6 +123,7 @@ class App extends React.Component {
             </span>
             </button>
           </div>
+        {}  
           <div className='ratings-summary'>
             <div className='ratings-summary_title'>
               <h4>Ratings Summary</h4>
@@ -130,7 +149,7 @@ class App extends React.Component {
           </div>
           <div className='write-review'>
             <span id='write-review_button'>
-              <button>WRITE A REVIEW</button>
+              <button onClick={this.clickWriteReview}>WRITE A REVIEW</button>
             </span>
             <span id='write-review_sort_by'>
               <select>
@@ -146,7 +165,7 @@ class App extends React.Component {
             </span>
           </div>
         </div>
-        <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews}/>
+        {/* <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews}/> */}
       </div>
     )
   }
