@@ -13,50 +13,47 @@ const Review = require('./model.js');
 // Id 600-699 Pants
 // Id 700-799 Shorts/Dress
 
-for (var i = 0; i < 8; i++){
+for (var i = 0; i < 800; i++) {
   var stars = functions.getStarCount();
   var clothing;
   var genderT;
   //add diff product categories
-  if ((i < 100) || (i > 400 && i < 500)){
+  if ((i < 100) || (i > 400 && i < 500)) {
     clothing = 'Jacket';
-  } else if ((i > 99 && i < 200) || (i > 499 && i < 600)){
+  } else if ((i > 99 && i < 200) || (i > 499 && i < 600)) {
     clothing = 'Shirt';
-  } else if ((i > 199 && i < 300) || (i > 599 && i < 700)){
+  } else if ((i > 199 && i < 300) || (i > 599 && i < 700)) {
     clothing = 'Pants';
-  } else if ((i > 299 && i < 400) || (i > 699 && i < 800)){
+  } else if ((i > 299 && i < 400) || (i > 699 && i < 800)) {
     clothing = 'Shorts'
   }
   //male or female
-  if (i < 400){
+  if (i < 400) {
     genderT = 'Male'
   } else {
     genderT = 'Female'
   }
   Review.create({
-    comment: {
-      id: i,
-      clothingType: clothing,
-      starCount: stars,
-      title: functions.getTitle(stars),
-      comment: functions.createComment(),
-      activity: functions.getActivity(),
-      pros: functions.getPros(stars),
-      cons: functions.getCons(stars),
-      recommend: functions.getRecommend(stars),
-      helpful: functions.getHelpful(stars),
-      date: functions.createNewDate(),
-      language: functions.getLanguage(),
-      subComments: []
-    },
-    userInfo: {
-      userName: functions.createNewUserName(),
-      from: functions.createFrom(),
-      age: functions.createAge(),
-      gender: genderT,
-      bodyType: functions.createBodyType(),
-      fit: functions.createFit(),
-      tag: functions.createTag()
-    }
+    id: i,
+    clothingType: clothing,
+    starCount: stars,
+    title: functions.getTitle(stars),
+    comment: functions.createComment(),
+    activity: functions.getActivity(),
+    pros: functions.getPros(stars),
+    cons: functions.getCons(stars),
+    recommend: functions.getRecommend(stars),
+    helpful: functions.getHelpful(stars),
+    date: functions.createNewDate(),
+    language: functions.getLanguage(),
+    subComments: [],
+    userName: functions.createNewUserName(),
+    from: functions.createFrom(),
+    age: functions.createAge(),
+    gender: genderT,
+    bodyType: functions.createBodyType(),
+    fit: functions.createFit(),
+    tag: functions.createTag()
   })
 }
+

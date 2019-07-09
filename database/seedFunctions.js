@@ -167,7 +167,7 @@ var createNewDate = () => {
 var getLanguage = () => {
   var language = seedData.languageList;
   var count = Math.round((Math.random() * (1 - 100) + 100));
-  if (count < 85){
+  if (count < 85) {
     return language[0];
   } else {
     //create new subList without English
