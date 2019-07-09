@@ -27,6 +27,7 @@ class App extends React.Component {
     this.get = this.get.bind(this);
     this.generateRandomReviewNumber = this.generateRandomReviewNumber.bind(this);
     this.clickWriteReview = this.clickWriteReview.bind(this);
+    this.clickExitWriteReview = this.clickExitWriteReview.bind(this);
   }
 
   handleSubmit(event) {
@@ -87,6 +88,9 @@ class App extends React.Component {
   clickWriteReview(){
     this.setState({ writeReviewClicked: true}, () => {'Write Review Clicked!'})
   }
+  clickExitWriteReview(){
+    this.setState({ writeReviewClicked: false}, () => {'Exit Write Review Clicked!'})
+  }
 
   componentDidMount() {
   }
@@ -98,10 +102,13 @@ class App extends React.Component {
     let page;
 
     if (writeReview){
-      <WriteReview />
+      console.log('write Clicked')
+      page = <WriteReview clickWriteReview={this.clickWriteReview}/>;
     } else {
-      <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews}/>
+      console.log('write not Clicked')
+      page = <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews} clickWriteReview={this.clickWriteReview}/>;
     }
+
     return (
       <div className='delete-when-integrate'>
         <div id='search-bar'>
@@ -117,56 +124,15 @@ class App extends React.Component {
               </span>
               <span className='product-title_total-rating'>{`(${this.state.reviewCount})`}</span>
             </h2>
-            <button className='accordion_toggle'>
+            <button className='accordion_toggle' onClick={this.clickExitWriteReview}>
               <span>
                 X
             </span>
             </button>
           </div>
-        {}  
-          <div className='ratings-summary'>
-            <div className='ratings-summary_title'>
-              <h4>Ratings Summary</h4>
-            </div>
-            <div>
-              {/*holds image of stars*/}
-              <img></img>
-            </div>
-            <div className='fitrating-slider'>
-              <div className='fitrating-slider_header'>
-                Fit:
-            </div>
-              <div className='fitrating-slider_label1'>
-                Fits Small
-            </div>
-              <div className='fitrating-slider_image'>
-                <img></img>
-              </div>
-              <div className='fitrating-slider_label2'>
-                Fits Large
-            </div>
-            </div>
-          </div>
-          <div className='write-review'>
-            <span id='write-review_button'>
-              <button onClick={this.clickWriteReview}>WRITE A REVIEW</button>
-            </span>
-            <span id='write-review_sort_by'>
-              <select>
-                <option>Sort by</option>
-                <option>Newest</option>
-                <option>Oldest</option>
-                <option>Highest Rating</option>
-                <option>Lowest Rating</option>
-                <option>Most helpful</option>
-                <option>Staff Reviews</option>
-                <option>Top Contributors</option>
-              </select>
-            </span>
-          </div>
         </div>
-        {/* <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews}/> */}
-      </div>
+        {page}
+      </div>  
     )
   }
 }
