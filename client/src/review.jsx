@@ -38,7 +38,7 @@ var Review = (props) => {
               <span>Cons: {review.cons}</span>
             </div>
             <div className='review.recommend'>
-              <span>{/*CheckMark*/}Yes, I recommend this product/</span>
+              <span>{/*CheckMark*/}Yes, I recommend this product</span>
             </div>
           </div>
           <div className='review-right'>
