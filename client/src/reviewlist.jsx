@@ -6,6 +6,7 @@ class ReviewList extends React.Component {
     super(props);
     this.state = {
       selectValue: '',
+      currentPage: 1
     }
     this.handleChange = this.handleChange.bind(this);
     this.newestFilter = this.newestFilter.bind(this);
@@ -16,7 +17,7 @@ class ReviewList extends React.Component {
     this.staffFilter = this.staffFilter.bind(this);
     this.topContributorFilter = this.topContributorFilter.bind(this);
     this.useWhichFilter = this.useWhichFilter.bind(this);
-    // this.renderReview = this.renderReview.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
   handleChange(event) {
     console.log(event.target.value)
@@ -139,6 +140,11 @@ class ReviewList extends React.Component {
   //       <Review review={review} key={index} />
   //   })
   // }
+  handlePageChange(event) {
+    //will set current page to be what I clicked
+    this.setState({ currentPage: Number(event.target.innerHTML) })
+    console.log('inside handle page change ', Number(event.target.innerHTML));
+  }
 
   render() {
     var { reviewCount, reviews } = this.props;
@@ -154,8 +160,6 @@ class ReviewList extends React.Component {
     }
     //update List to whatever filter is clicked
     updatedList = this.useWhichFilter(updatedList);
-    console.log('updated list inside render ', updatedList);
-
     //want to go through updatedLIst and add page numbers
     var count = 0;
     var pageNumber = 1;
@@ -172,7 +176,17 @@ class ReviewList extends React.Component {
         }
         // console.log('updatedList ', updatedList[i])
       }
-      console.log('newupdatedLIst ', updatedList)
+    }
+    console.log('newupdatedLIst ', updatedList)
+    //will only render objects with current Page value inside of it
+    //i can either make a new array or loop through and set it
+    const newUpdatedList = [];
+    for (var i = 0; i < updatedList.length; i++) {
+      if (typeof (updatedList[i]) !== 'undefined') {
+        if (this.state.currentPage === updatedList[i].pageNumber) {
+          newUpdatedList.push(updatedList[i]);
+        }
+      }
     }
 
     return (
@@ -219,17 +233,18 @@ class ReviewList extends React.Component {
         </div>
         <div className='reviewList'>
           {
-            // updatedList.map((review, index) => {
-            //   return (
-            //     <Review review={review} key={index} />
-            //   )
-            // })
+            newUpdatedList.map((review, index) => {
+              return (
+                <Review review={review} key={index} />
+              )
+            })
+
           }
-          <div>>
-          {
+          <div>
+            {
               pages.map((page, index) => {
                 return (
-                  <span key={index}>{page}</span>
+                  <span value={page} key={index} onClick={this.handlePageChange}>{page}</span>
                 )
               })
             }
