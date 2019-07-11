@@ -6,29 +6,38 @@ class WriteReview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewLength: ''
+      reviewLength: '',
+      value: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.checkReviewLength = this.checkReviewLength.bind(this);
-    this.checkReviewWordLength = this.checkReviewWordLength.bind(this);
+    // this.checkReviewWordLength = this.checkReviewWordLength.bind(this);
   }
   handleChange(event) {
     this.setState({
       reviewLength: event.target.value.length
     }, console.log('review count ', event.target.value.length))
+    this.setState({ value: event.target.value });
   }
   checkReviewLength(length) {
     return 50 - length;
   }
-  checkReviewWordLength() {
-    if (this.state.reviewLength === '') {
-      return <ReviewWordCountZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
-    } else {
-      return <ReviewWordCountNonZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
-    }
-  }
+  // checkReviewWordLength() {
+  //   if (this.state.reviewLength === '') {
+  //     return <ReviewWordCountZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
+  //   } else {
+  //     return <ReviewWordCountNonZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
+  //   }
+  // }
 
   render() {
+
+    var reviewWordComponent;
+    if (this.state.value.length === 0) {
+      reviewWordComponent = <ReviewWordCountZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
+    } else {
+      reviewWordComponent = <ReviewWordCountNonZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
+    }  
 
     return (
       <div className='write-review'>
@@ -135,7 +144,7 @@ class WriteReview extends React.Component {
               <span className='title_input_wrapper'>
                 <textarea type='text' rows='10' cols='25' onChange={this.handleChange}></textarea>
               </span>
-              {this.checkReviewWordLength()}
+              {reviewWordComponent}
             </div>
             <div className='review-form_activity'>
               <label>Activity</label>

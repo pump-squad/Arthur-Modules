@@ -80,34 +80,34 @@ class App extends React.Component {
   }
   //once I get reviews with api request, create random review count
   generateRandomReviewNumber() {
-    
+
     //get random number between 0 - 100
     var count = Math.floor((Math.random() * 100));
     this.setState({ reviewCount: count }, () => { console.log('Review Count ', count) });
   }
 
-  clickWriteReview(){
-    this.setState({ writeReviewClicked: true}, () => {'Write Review Clicked!'})
+  clickWriteReview() {
+    this.setState({ writeReviewClicked: true }, () => { 'Write Review Clicked!' })
   }
-  clickExitWriteReview(){
-    this.setState({ writeReviewClicked: false}, () => {'Exit Write Review Clicked!'})
+  clickExitWriteReview() {
+    this.setState({ writeReviewClicked: false }, () => { 'Exit Write Review Clicked!' })
   }
 
   componentDidMount() {
   }
-  
-  
+
+
 
   render() {
     const writeReview = this.state.writeReviewClicked;
     let page;
 
-    if (writeReview){
+    if (writeReview) {
       console.log('write Clicked')
-      page = <WriteReview clickWriteReview={this.clickWriteReview}/>;
+      page = <WriteReview clickWriteReview={this.clickWriteReview} />;
     } else {
       console.log('write not Clicked')
-      page = <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews} clickWriteReview={this.clickWriteReview}/>;
+      page = <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews} clickWriteReview={this.clickWriteReview} />;
     }
 
     return (
@@ -116,16 +116,16 @@ class App extends React.Component {
           <Search handleSubmit={this.handleSubmit} getSearchValue={this.getSearchValue} />
         </div>
         <div id='product-reviews'>
-          <div className='accordion_title'>
+          <div className='accordion-title'>
             <h2>
               PRODUCT REVIEWS
-          <span className='product-title_star_img'>
+              <span className='product-title-star-img'>
                 Stars
-            <span className='product-title_star_img'></span>
+                <span className='product-title-star-img'></span>
+                <span className='product-title-total-rating'>{`(${this.state.reviewCount})`}</span>
               </span>
-              <span className='product-title_total-rating'>{`(${this.state.reviewCount})`}</span>
             </h2>
-            <button className='accordion_toggle' onClick={this.clickExitWriteReview}>
+            <button className='accordion-toggle' onClick={this.clickExitWriteReview}>
               <span>
                 X
             </span>
@@ -133,7 +133,7 @@ class App extends React.Component {
           </div>
         </div>
         {page}
-      </div>  
+      </div>
     )
   }
 }

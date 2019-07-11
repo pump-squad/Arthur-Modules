@@ -1,0 +1,25 @@
+.accordion-title {
+  background-color: lightblue;
+}
+
+.accordion-title h2 {
+  font-size: 18px;
+  font-family: "Avenir LT W01 85 Heavy",arial,sans-serif;
+  font-weight: normal;
+  padding: 0;
+  color: #000;
+  margin: 10px 0;
+  width: 90%;
+}
+
+.product-title-total-rating {
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.accordion-toggle {
+  right: -4px;
+  bottom: 30px;
+  float: right;
+  position: relative;
+}

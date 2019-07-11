@@ -6,7 +6,7 @@ class ReviewList extends React.Component {
     super(props);
     this.state = {
       selectValue: '',
-      currentPage: 1
+      currentPage: 1,
     }
     this.handleChange = this.handleChange.bind(this);
     this.newestFilter = this.newestFilter.bind(this);
@@ -18,6 +18,7 @@ class ReviewList extends React.Component {
     this.topContributorFilter = this.topContributorFilter.bind(this);
     this.useWhichFilter = this.useWhichFilter.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
+    this.getStarAverage = this.getStarAverage.bind(this);
   }
   handleChange(event) {
     console.log(event.target.value)
@@ -133,17 +134,20 @@ class ReviewList extends React.Component {
     }
     return newArray;
   }
-  // renderReview = (pages) => {
-  //   var pages = pages.slice(0, 10);
-  //   console.log('inside render review ', pages)
-  //   var reviewItems = pages.map((review, index) => {
-  //       <Review review={review} key={index} />
-  //   })
-  // }
   handlePageChange(event) {
     //will set current page to be what I clicked
     this.setState({ currentPage: Number(event.target.innerHTML) })
     console.log('inside handle page change ', Number(event.target.innerHTML));
+  }
+  getStarAverage(array){
+    var holdAllStarCount = 0;
+    for (var i = 0; i < array.length; i++){
+      if ( typeof(array[i]) !== 'undefined'){
+        console.log('inside get star average ', array[i].starCount)
+        holdAllStarCount += array[i].starCount;
+      }
+    }
+    return holdAllStarCount/array.length;
   }
 
   render() {
@@ -178,6 +182,7 @@ class ReviewList extends React.Component {
       }
     }
     console.log('newupdatedLIst ', updatedList)
+    var average = this.getStarAverage(updatedList);
     //will only render objects with current Page value inside of it
     //i can either make a new array or loop through and set it
     const newUpdatedList = [];
@@ -192,45 +197,118 @@ class ReviewList extends React.Component {
     return (
       <div>
         <div className='ratings-summary'>
-          <div className='ratings-summary_title'>
-            <h4>Ratings Summary</h4>
-          </div>
           <div>
-            {/*holds image of stars*/}
-            <img></img>
-          </div>
-          <div className='fitrating-slider'>
-            <div className='fitrating-slider_header'>
-              Fit:
-          </div>
-            <div className='fitrating-slider_label1'>
-              Fits Small
-          </div>
-            <div className='fitrating-slider_image'>
-              <img></img>
+            <div className='ratings-summary-header'>
+              <div className='ratings-summary-header-title'>Ratings summary
+                <div className='star-container'>
+                  {average}
+                  <span className='star-container-stars'>
+                    <img></img>
+                  </span>
+                  <span className='star-container-advanced-options'>
+                    <select className='advanced-options-language'>
+                      <option>Language</option>
+                      <option>Danish</option>
+                      <option>German</option>
+                      <option>English</option>
+                      <option>Spanish</option>
+                      <option>French</option>
+                      <option>Italian</option>
+                      <option>Japanese</option>
+                      <option>Norwegian</option>
+                      <option>Swedish</option>
+                      <option>Chinese</option>
+                    </select>
+                    <select className='advanced-options-star-rating'>
+                      <option>Star Rating</option>
+                      <option>1 Star</option>
+                      <option>2 Stars</option>
+                      <option>3 Stars</option>
+                      <option>4 Stars</option>
+                      <option>5 Stars</option>
+                    </select>
+                    <select className='advanced-options-fit'>
+                      <option>Fit</option> 
+                      <option>Fits Very Small</option>
+                      <option>Fits Small</option>
+                      <option>True to Size</option>
+                      <option>Fits Large</option>
+                      <option>Fits Very Large</option>
+                    </select>
+                    <select className='advanced-options-age'>
+                      <option>Age</option> 
+                      <option>Under 18</option>
+                      <option>18-24</option>
+                      <option>25-34</option>
+                      <option>35-44</option>
+                      <option>45-54</option>
+                      <option>55-64</option>
+                      <option>Over 65</option>
+                    </select>
+                    <select className='advanced-options-gender'>
+                      <option>Gender</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
+                    <select className='advanced-options-bodyType'>
+                      <option>Body Type</option>
+                      <option>Petite</option>
+                      <option>Lean</option>
+                      <option>Slim</option>
+                      <option>Athletic</option>
+                      <option>Solid</option>
+                      <option>Curvy</option>
+                    </select>
+                  </span>
+                </div>
+
+                <div className='fitrating-container'>
+                  <div className='fitrating-slider'>
+                    <span className='fitrating-slider-header'>
+                      Fit:
+                  </span>
+                    <span className='fitrating-slider-label1'>
+                      Fits Small
+                  </span>
+                    <span className='fitrating-slider-image'>
+                      <img></img>
+                    </span>
+                    <span className='fitrating-slider-label2'>
+                      Fits Large
+                  </span>
+                  <span className='fitrating-container-advanced-filter'>
+                    <div>Click on filters to refine your results.</div>
+                  </span>
+                  </div>
+                </div>
+              </div>
+              <div className='ratings-summary-header-advanced-filter'>Advanced filters</div>
             </div>
-            <div className='fitrating-slider_label2'>
-              Fits Large
           </div>
-          </div>
+
         </div>
         <div className='write-review'>
-          <span id='write-review_button'>
-            <button onClick={this.props.clickWriteReview}>WRITE A REVIEW</button>
-          </span>
-          <span id='write-review_sort_by'>
-            <select value={this.state.selectValue} onChange={this.handleChange}>
-              <option value=''>Sort by</option>
-              <option value='newest'>Newest</option>
-              <option value='oldest'>Oldest</option>
-              <option value='highest'>Highest Rating</option>
-              <option value='lowest'>Lowest Rating</option>
-              <option value='mostHelpful'>Most helpful</option>
-              <option value='staff'>Staff Reviews</option>
-              <option value='topContributors'>Top Contributors</option>
-            </select>
-          </span>
+          <div>
+            <div>
+              <span>
+                <div id='write-review-button' onClick={this.props.clickWriteReview}>WRITE A REVIEW</div>
+              </span>
+            </div>
+            <span id='write-review-sort-by'>
+              <select value={this.state.selectValue} onChange={this.handleChange}>
+                <option value=''>Sort by</option>
+                <option value='newest'>Newest</option>
+                <option value='oldest'>Oldest</option>
+                <option value='highest'>Highest Rating</option>
+                <option value='lowest'>Lowest Rating</option>
+                <option value='mostHelpful'>Most helpful</option>
+                <option value='staff'>Staff Reviews</option>
+                <option value='topContributors'>Top Contributors</option>
+              </select>
+            </span>
+          </div>
         </div>
+        <div className='line-divider'></div>
         <div className='reviewList'>
           {
             newUpdatedList.map((review, index) => {
@@ -238,17 +316,17 @@ class ReviewList extends React.Component {
                 <Review review={review} key={index} />
               )
             })
-
           }
-          <div>
+          <div className='all-pages' align='center'>
             {
               pages.map((page, index) => {
                 return (
-                  <span value={page} key={index} onClick={this.handlePageChange}>{page}</span>
+                  <span className='page-number' value={page} key={index} onClick={this.handlePageChange}>{page}</span>
                 )
               })
             }
           </div>
+          <div className='reviewList'></div>
         </div>
       </div>
     )
