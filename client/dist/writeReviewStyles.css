@@ -1,0 +1,154 @@
+.write-review-header-image {
+  background-color: green;
+}
+.write-review-product-descrip {
+  background-color: orange;
+  color: #555555;
+}
+.write-review{
+  font-family: 'Avenir LT W01 55 Roman',arial,sans-serif;
+  font-size: 14px;
+}
+.write-review-header-title{
+  font-size: 18px;
+  font-weight: bold;
+  line-height: normal;
+  margin-bottom: 10px;
+  display: block;
+}
+.write-review-header-product-info{
+  display: flex;
+}
+.write-review-header-product-left{
+  width: 10%;
+}
+.write-review-header-product-right{
+  flex-grow: 1;
+}
+.review-form-header-title,
+.review-form-tell-us-title,
+.review-form-share-title,
+.review-form-about-you-title {
+ color: rgb(0, 0, 0);
+ font-family: "Avenir LT W01 55 Roman", arial, sans-serif;
+ font-size: 18px;
+ font-weight: bold;
+ line-height: 1.5;
+ margin: 0 0 15px;
+ padding: 0 0 5px;
+}
+.big-asterisk {
+  color: rgb(204, 0, 0);
+  font-size: 14px;
+}
+.review-form-rating-header {
+  display: flex;
+}
+.review-form-rating-header-required{
+  flex-grow: 1;
+  display: flex;
+}
+.big-asterisk-left{
+  width: 200%;
+}
+.big-asterisk {
+  flex-grow: 1;
+}
+.asterisk {
+  color: #CC0000;
+}
+.review-form-rating-stars,
+.recommend-container,
+.review-form-rating-fits,
+.review-form-title,
+.container{
+  display: flex;
+}
+.review-form-rating-left,
+.i-recommend,
+.review-fits,
+.review-title,
+.title {
+  width: 15%;
+}
+.overall-star-container,
+.recommend-radio-container,
+.rating-radio,
+.title-input-wrapper{
+  flex-grow:1;
+  padding-left: 1%;
+}
+.overall-rating,
+.i-recommend,
+.review-fits,
+.review-title,
+.title {
+  text-align: right;
+}
+.review-form-rating-stars {
+  padding-bottom: 2%;
+}
+.recommend-container,
+.fits-radio {
+  padding-bottom: 1%;
+}
+.review-form-rating-recommend-yes,
+.review-form-rating-recommend-no,
+.gender-male,
+.gender-female{
+  padding-left: 0.5%;
+}
+.no-container,
+.rating-radio-gender{
+  padding-left: 1%;
+}
+.input-small{
+  padding: 10px;
+  width: 400px;
+  font-size: 14px;
+  border-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+}
+.recommend-radio-container,
+.fits-radio{
+  font-size: 12px;
+}
+.fits-radio{
+  display: flex;
+  flex-flow: row wrap;
+}
+.fits-radio label,
+.rating-radio-gender label,
+.rating-radio label{
+  display: inline-block;
+  text-align: center;
+}
+.fits-radio input,
+.rating-radio input,
+.rating-radio label {
+  display: block;
+  margin: 0.5em auto;
+}
+/* .radio-gray{
+  width: 10px;
+  height:10px;
+  margin-top: 9px;
+  background-image: linear-gradient(top, white, white 60%, transparent 40%, transparent 100%);
+  background-image: -webkit-linear-gradient(top, gray, gray 50%, transparent 40%, transparent 100%)
+} */
+
+.caption {
+  color: #999999;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.5;
+    display: block;
+    padding-top: 2px;
+    margin-left: 20%;
+    width: 400px;
+}
+
+.small {
+  width: 66px;
+}

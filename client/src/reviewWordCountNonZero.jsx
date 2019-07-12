@@ -2,7 +2,7 @@ import React from 'react';
 
 var ReviewWordCountNonZero = (props) => {
   return (    
-    <div>
+    <div className='caption'>
       {console.log('inside nonzero')}
       {console.log(props)}
       <div>

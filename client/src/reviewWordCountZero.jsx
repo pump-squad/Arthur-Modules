@@ -2,7 +2,7 @@ import React from 'react';
 
 var ReviewWordCountZero = (props) => {
   return (    
-    <div>
+    <div className='caption'>
       {console.log('inside zero')}
       <div>
         You must write at least 50 characters for this field.

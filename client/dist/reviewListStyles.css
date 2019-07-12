@@ -5,15 +5,14 @@
 .ratings-summary-title {
   background-color: lightgreen;
 }
-.write-review {
-  background-color: orange;
-}
+
 .ratings-summary-header-advanced-filter {
   background-color: yellow;
   float: right;
-  right: 540px;
+  right: 700px;
   bottom: 54px;
   position: relative;
+  font: 14px;
 }
 
 .fitrating-slider {
@@ -43,14 +42,16 @@
 .fitrating-container-advanced-filter {
   float: right;
   position: relative;
-  right: 410px;
+  right: 630px;
+  font-size: 12px;
+  color: #999999;
 }
 
 .star-container-advanced-options {
   font-size: 12px;
   float: right;
   position: relative;
-  right: 123px;
+  right: 284px;
 }
 .fitrating-slider-header {
   font: 12px;
