@@ -57,33 +57,45 @@
 .asterisk {
   color: #CC0000;
 }
+.input-big{
+  padding: 10px;
+  width: 400px;
+  font-size: 14px;
+  border-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    resize: none;
+}
 .review-form-rating-stars,
 .recommend-container,
 .review-form-rating-fits,
 .review-form-title,
-.container{
+.container,
+.container-subgroup,
+.review-form-send-email {
   display: flex;
 }
 .review-form-rating-left,
 .i-recommend,
 .review-fits,
-.review-title,
-.title {
+.title,
+.send-email-left{
   width: 15%;
 }
 .overall-star-container,
 .recommend-radio-container,
 .rating-radio,
-.title-input-wrapper{
+.title-input-wrapper,
+.review-body{
   flex-grow:1;
   padding-left: 1%;
 }
 .overall-rating,
 .i-recommend,
 .review-fits,
-.review-title,
 .title {
   text-align: right;
+  padding-top: 7px;
 }
 .review-form-rating-stars {
   padding-bottom: 2%;
@@ -99,7 +111,8 @@
   padding-left: 0.5%;
 }
 .no-container,
-.rating-radio-gender{
+.rating-radio-gender,
+.rating-radio-gender-gender{
   padding-left: 1%;
 }
 .input-small{
@@ -117,6 +130,7 @@
 .fits-radio{
   display: flex;
   flex-flow: row wrap;
+  width: 425px;
 }
 .fits-radio label,
 .rating-radio-gender label,
@@ -147,8 +161,83 @@
     padding-top: 2px;
     margin-left: 20%;
     width: 400px;
+    margin-bottom: 10px; 
 }
-
 .small {
   width: 66px;
+}
+.container-subgroup,
+.review-form-send-email {
+  padding-bottom: 10px;
+}
+.review-form-submit {
+  display: flex;
+}
+.review-submit-left {
+  width: 75%;
+  display: flex;
+  flex-flow: row wrap;
+}
+.review-submit-right {
+  flex-grow: 1;
+}
+.review-form-links{
+  display: flex;
+  flex-flow: row wrap;
+  flex-grow:1;
+  padding-top: 12px;
+}
+#submit-button {
+  display: inline-block;
+  background-color: #000000;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  *display: inline;
+  zoom: 1;
+  color: #FFFFFF;
+  font-family: 'Avenir LT W01 55 Roman',arial,sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 40px;
+}
+#cancel-button{
+  background: transparent url(arrowWhite.gif) left center no-repeat;
+  padding: 10px 10px;
+  text-align: center;
+  padding-top: 12px;
+}
+#preview-button{
+  border: none;
+  display: inline-block;
+  height: 44px;
+  padding: 10px 10px;
+  padding-top: 12px;
+}
+.divider {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.preview-button{
+  text-transform: underline;
+}
+.terms {
+  padding-left: 5px;
+}
+.title-five {
+  padding-top: 0px;
+}
+.title-three {
+  padding-top: 1px;
+}
+.rating-radio-gender-gender{
+  width: 200px;
+}
+.gender-male,
+.gender-female{
+  padding-left: 1%;
+  padding-right: 1.5%;
+  text-align: left;
 }

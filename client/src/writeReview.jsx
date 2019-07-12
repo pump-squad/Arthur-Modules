@@ -76,7 +76,7 @@ class WriteReview extends React.Component {
             <div className='review-form-rating-body'>
               <div className='review-form-rating-stars'>
                 <div className='review-form-rating-left'>
-                  <div className='overall-rating'>Overall Rating
+                  <div className='overall-rating title-five'>Overall Rating
                     <span className='asterisk'>*</span></div>
                 </div>
                 <div className='overall-star-container'>
@@ -90,7 +90,7 @@ class WriteReview extends React.Component {
               </div>
               <div className='review-form-rating-recommend'>
                 <div className='recommend-container'>
-                  <div className='i-recommend'>I Recommend It
+                  <div className='i-recommend  title-five'>I Recommend It
                   <span className='asterisk'>*</span></div>
                   <div className='recommend-radio-container'>
                     <span>
@@ -105,7 +105,7 @@ class WriteReview extends React.Component {
                 </div>
               </div>
               <div className='review-form-rating-fits'>
-                <div className='review-fits'>Fits</div>
+                <div className='review-fits title-three'>Fits</div>
                 <div className='fits-radio'>
                   <div className='rating-radio'>
                     <input type='radio'></input>
@@ -141,7 +141,7 @@ class WriteReview extends React.Component {
               Tell Us What You Think
             </div>
             <div className='review-form-title'>
-              <div className='review-title'>Review Title<span className='asterisk'>*</span>
+              <div className='title'>Review Title<span className='asterisk'>*</span>
               </div>
               <span className='title-input-wrapper'>
                 <input className='input-small' type='text' maxLength="150"></input>
@@ -151,36 +151,40 @@ class WriteReview extends React.Component {
             <div className='container'>
               <div className='title'>Pros</div>
               <span className='title-input-wrapper'>
-                <input className='input-small' type='text' maxLength="50"></input>
+                <input className='input-small' type='text' maxLength="50" placeholder='Add a Pro' onFocus={(e) => e.target.placeholder = ""}
+                  onBlur={(e) => e.target.placeholder = "Add a Pro"}></input>
               </span>
             </div>
-            <div className='caption'>(120 character maximum) Example: durable, lightweight, versatile</div>
+            <div className='caption'>
+              (120 character maximum) Example: durable, lightweight, versatile
+            </div>
             <div className='container'>
               <div className='title'>Cons</div>
               <span className='title-input-wrapper'>
-                <input className='input-small' type='text' maxLength="50"></input>
-              </span>
+                <input className='input-small' type='text' maxLength="50" placeholder='Add a Con' onFocus={(e) => e.target.placeholder = ""}
+                  onBlur={(e) => e.target.placeholder = "Add a Con"}></input>
+                </span>
             </div>
             <div className='caption'>
               (120 character maximum) Example: cumbersome, flimsy, inefficient
               </div>
-            <div className='review-form-review'>
-              <div className='review-title'>Your Review<span className='asterisk'>*</span>
+            <div className='container'>
+
+              <div className='title'>Your Review<span className='asterisk'>*</span></div>
+              <div className='review-body'>
+                <textarea className='input-big' type='text' rows='10' cols='25' onChange={this.handleChange}></textarea>
               </div>
-              <span className='title-input-wrapper'>
-                <textarea type='text' rows='10' cols='25' onChange={this.handleChange}></textarea>
-              </span>
-              {reviewWordComponent}
             </div>
+            {reviewWordComponent}
             <div className='container'>
               <div className='title'>Activity</div>
               <span className='title-input-wrapper'>
                 <input className='input-small' type='text' maxLength="50"></input>
               </span>
-              <div className='caption'>
-                What activity do you primarily use this product for?
-              </div>
             </div>
+            <div className='caption'>
+              What activity do you primarily use this product for?
+              </div>
           </div>
           <div className='line-divider'></div>
           <div className='review-form-share'>
@@ -188,53 +192,58 @@ class WriteReview extends React.Component {
               Share Photos & Video
             </div>
             <div className='container'>
-              <div className='title'>Upload Your Images</div>
+              <div className='title title-three'>Upload Your Images</div>
               <span className='title-input-wrapper'>
                 <div>
                   <button>Choose File</button>
                   <label></label>
                 </div>
               </span>
-              <div className='caption'>6 image max, 5mb max per image</div>
             </div>
-            <div className='review-form-vid-link'>
+            <div className='caption'>
+              6 image max, 5mb max per image
+            </div>
+            <div className='container'>
               <div className='title'>Link To Your Video</div>
               <span className='title-input-wrapper'>
                 <input className='input-small' type='text' maxLength="1024"></input>
               </span>
-              <div className='caption'>Paste the URL from your videos on <a href="http://www.youtube.com/" className="youtube" target="_blank">YouTube</a>.
-              </div>
             </div>
+            <div className='caption'>Paste the URL from your videos on
+            <a href="http://www.youtube.com/" className="youtube" target="_blank">YouTube</a>.
+              </div>
             <div className='container'>
               <div className='title'>Video Caption</div>
               <span className='title-input-wrapper'>
                 <input className='input-small' type='text' maxLength="255"></input>
               </span>
-              <div className='caption'>
-                Example: My demonstration of how to use this product
-                </div>
             </div>
+            <div className='caption'>
+              Example: My demonstration of how to use this product
+                </div>
           </div>
           <div className='line-divider'></div>
           <div className='review-form-about-you'>
             <div className='review-form-about-you-title'>About You</div>
             <div className='container'>
-              <div className='review-title'>Choose A Nickname<span className='asterisk'>*</span>
+              <div className='title'>Choose A Nickname<span className='asterisk'>*</span>
               </div>
               <span className='title-input-wrapper'>
                 <input className='input-small' type='text' maxLength="25"></input>
               </span>
-              <div className='caption'>Example: Jackie27. For privacy reasons, do not use your full name or email address.</div>
             </div>
+            <div className='caption'>
+              Example: Jackie27. For privacy reasons, do not use your full name or email address.
+              </div>
             <div className='container'>
               <div className='title'>Where Are You Located?</div>
               <span className='title-input-wrapper'>
                 <input className='input-small' type='text' maxLength="200"></input>
               </span>
-              <div className='caption'>Example: Vancouver, BC</div>
             </div>
-            <div className='container'>
-              <div className='review-title'>Your Age</div>
+            <div className='caption'>Example: Vancouver, BC</div>
+            <div className='container-subgroup'>
+              <div className='title title-three'>Your Age</div>
               <span className='title-input-wrapper'>
                 <select>
                   <option></option>
@@ -248,20 +257,22 @@ class WriteReview extends React.Component {
                 </select>
               </span>
             </div>
-            <div className='container'>
-              <div className='review-title'>Your Gender</div>
-              <div className='rating-radio-gender'>
+              <div className='container'>
+              <div className='title title-three'>Your Gender</div>
+              <div className='rating-radio-gender-gender'>
+                <span>
                 <input type='radio'></input>
                 <label className='gender-male small'>Male</label>
-              </div>
-              <div className='radio-gray'></div>
-              <div className='rating-radio-gender'>
+                </span>
+                <span>
                 <input type='radio'></input>
                 <label className='gender-female small'>Female</label>
+                </span>
               </div>
             </div>
-            <div className='container'>
-              <div className='review-title'>Your Body Type</div>
+
+            <div className='container-subgroup'>
+              <div className='title title-three'>Your Body Type</div>
               <div className='fits-radio'>
                 <div className='rating-radio'>
                   <input type='radio'></input>
@@ -293,48 +304,52 @@ class WriteReview extends React.Component {
                 </div>
               </div>
             </div>
-
             <div className='review-form-send-email'>
-              <span className='title-input-wrapper'>
+              <div className='send-email-left'></div>
+              <div className='title-input-wrapper'>
                 <input type='checkbox'></input>
-              </span>
-              <label>Please send me an email when my review is posted or commented on.</label>
-            </div>
-            <div className='review-form-email'>
-              <label>Your Email<span className='asterisk'>*</span></label>
+                <span className='checkbox-caption'>Please send me an email when my review is posted or commented on.</span>
+              </div>
+              </div>            
+              <div className='container'>
+              <div className='title'>Your Email<span className='asterisk'>*</span></div>
               <span className='title-input-wrapper'>
                 <input className='input-small' type='text' maxLength="255"></input>
               </span>
-              <div className='caption'>We will ONLY use your email to notify you in regards to your submission.</div>
             </div>
-          </div>
-          <div className='line-divider'></div>
-          <div className='review-form-footer'>
-            <div className='review-form-send-email'>
-              <span className='title-input-wrapper'>
-                <input type='checkbox'></input>
-              </span>
-              <label><span>By submitting this review you agree to our <a href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm'>Terms & Conditions.</a><span className="asterisk">*</span></span></label>
+            <div className='caption'>We will ONLY use your email to notify you in regards to your submission.</div>
             </div>
-            <div className='review-form-submit'>
-              <span>
-                <button className='submit-button'>Submit</button>
-              </span>
-              <span>
-                <button className='cancel-button'>Cancel</button>
-              </span>
-              <span>
-                <button className='preview-your-review-button'>Preview your review</button>
-              </span>
-            </div>
-            <div className='review-form-links'>
-              <a href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm'>Terms & Condtions</a>
-              <a href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/guidelines.htm'>Review Guidelines</a>
-            </div>
-          </div>
+            <div className='line-divider'></div>
+            <div className='review-form-footer'>
+                  <div className='review-form-send-email'>
+                    <div className='send-email-left'></div>
+                    <div className='title-input-wrapper'>
+                      <input type='checkbox'></input>
+                      <span className='checkbox-caption'>By submitting this review you agree to our
+                      <a className='terms' href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm'>
+                      Terms & Conditions.</a>
+                      <span className="asterisk">*</span>
+                    </span>
+                    </div>
+                  </div>
+                <div className='review-form-submit'>
+                  <div className='review-submit-left'>
+                    <div id='submit-button'>> SUBMIT</div>
+                    <div id='cancel-button'>> Cancel</div>
+                    <div id='preview-button'>> Preview your review</div>
+                  </div> 
+                  <div className='review-submit-right'>
+                    <div className='review-form-links'>
+                      <div><a href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm'>Terms & Condtions</a></div>
+                      <div className='divider'>|</div>
+                      <div><a href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/guidelines.htm'>Review Guidelines</a></div>
+                     </div>
+                  </div>
+                </div>
+          </div>  
           <div className='line-divider'></div>
         </form>
-      </div>
+  </div>
     )
   }
 }
