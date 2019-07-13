@@ -216,7 +216,7 @@ class WriteReview extends React.Component {
             <div className='container'>
 
               <div className='title'>Your Review<span className='asterisk'>*</span></div>
-              <div className='review-body'>
+              <div className='review-body-text'>
                 <textarea className='input-big' type='text' rows='10' cols='25' onChange={this.handleChange}></textarea>
               </div>
             </div>
@@ -240,7 +240,7 @@ class WriteReview extends React.Component {
               <div className='title title-three'>Upload Your Images</div>
               <span className='title-input-wrapper'>
                 <div>
-                  <button>Choose File</button>
+                  <button onClick={()=>{event.preventDefault()}}>Choose File</button>
                   <label></label>
                 </div>
               </span>
@@ -376,7 +376,7 @@ class WriteReview extends React.Component {
                     <div className='title-input-wrapper'>
                       <input type='checkbox'></input>
                       <span className='checkbox-caption'>By submitting this review you agree to our
-                      <a href="https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm" target="_blank"class='terms'>
+                      <a href="https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm" target="_blank" class='terms'>
                         Terms &amp; Conditions.</a>
                       <span className="asterisk">*</span>
                     </span>
@@ -385,7 +385,7 @@ class WriteReview extends React.Component {
                 <div className='review-form-submit'>
                   <div className='review-submit-left'>
                     <div id='submit-button'>> SUBMIT</div>
-                    <div id='cancel-button'>> Cancel</div>
+                    <div id='cancel-button' onClick={this.props.clickExitWriteReview}>> Cancel</div>
                     <div id='preview-button'>> Preview your review</div>
                   </div> 
                   <div className='review-submit-right'>

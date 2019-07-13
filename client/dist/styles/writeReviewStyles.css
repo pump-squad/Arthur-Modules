@@ -1,8 +1,4 @@
-.write-review-header-image {
-  background-color: green;
-}
 .write-review-product-descrip {
-  background-color: orange;
   color: #555555;
 }
 .write-review{
@@ -86,9 +82,12 @@
 .recommend-radio-container,
 .rating-radio,
 .title-input-wrapper,
-.review-body{
+.review-body-text{
   flex-grow:1;
   padding-left: 1%;
+}
+.review-body{
+  flex-grow:1;
 }
 .overall-rating,
 .i-recommend,
@@ -176,7 +175,7 @@
   padding-left: 6.5%;
 }
 .review-submit-left {
-  width: 75%;
+  width: 70%;
   display: flex;
   flex-flow: row wrap;
 }
@@ -189,6 +188,8 @@
   flex-grow:1;
   padding-top: 12px;
 }
+a:visited { text-decoration: none; color:black; }
+
 #submit-button {
   display: inline-block;
   background-color: #000000;
@@ -251,4 +252,7 @@
 }
 .youtube {
   color: rgb(0, 0, 0);
+}
+.write-review-product-name {
+  padding-bottom: 15px;
 }

@@ -1,14 +1,4 @@
-.review-footer {
-  background-color: purple;
-}
-.review-right {
-  background-color: lightgoldenrodyellow;
-}
-.review-left {
-  background-color: lightsalmon;
-}
 .review-header {
-  background-color: lightgray;
   display: flex;
 }
 .review-title {
@@ -17,7 +7,7 @@
   font-weight: bold;
   line-height: normal;
   padding: 5px 0 5px 0;
-  width: 920px;
+  width: 500px;
 }
 .review-date {
   font-family: 'Avenir LT W01 55 Roman',arial,sans-serif;
@@ -43,10 +33,12 @@
   display: flex;
 }
 .review-left {
-  width: 900px;
+  width: 650px;
+  padding-right: 10px;
 }
 .review-right {
   flex-grow: 1;
+  width: 300px;
 }
 .review-userName {
   font-size: 14px;
@@ -87,11 +79,8 @@
 .review-cons {
   margin: 0 0 10px 0;
 }
-.review-recommend {
-  padding: 0 0 0 5px;
-}
 .review-postComment {
-  padding: 5px;
+  padding: 5px, 5px, 5px;
 }
 .review-footer {
   display: flex;

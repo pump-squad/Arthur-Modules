@@ -194,19 +194,21 @@ class ReviewList extends React.Component {
         }
       }
     }
-
     return (
       <div>
         <div className='ratings-summary'>
           <div>
             <div className='ratings-summary-header'>
-              <div className='ratings-summary-header-title'>Ratings summary
-                <div className='star-container'>
-                  {average}
+              <div className='ratings-summary-header-title'>Ratings summary</div>
+              <div className='ratings-summary-header-advanced-filter'>Advanced filters</div>
+            </div>
+            <div className='star-container'>
+                <div className='star-container-stars'>{average}
                   <span className='star-container-stars'>
                     <img></img>
                   </span>
-                  <span className='star-container-advanced-options'>
+                </div>
+                <div className='star-container-advanced-options'>
                     <select className='advanced-options-language'>
                       <option>Language</option>
                       <option>Danish</option>
@@ -260,7 +262,7 @@ class ReviewList extends React.Component {
                       <option>Solid</option>
                       <option>Curvy</option>
                     </select>
-                  </span>
+                  </div>
                 </div>
 
                 <div className='fitrating-container'>
@@ -277,25 +279,21 @@ class ReviewList extends React.Component {
                     <span className='fitrating-slider-label2'>
                       Fits Large
                   </span>
-                  <span className='fitrating-container-advanced-filter'>
+                  </div>
+                  <div className='fitrating-container-advanced-filter'>
                     <div>Click on filters to refine your results.</div>
-                  </span>
                   </div>
                 </div>
-              </div>
-              <div className='ratings-summary-header-advanced-filter'>Advanced filters</div>
-            </div>
           </div>
-
         </div>
         <div className='write-review'>
-          <div>
-            <div>
+          <div className='header-container'>
+            <div className='write-left'>
               <span>
                 <div id='write-review-button' onClick={this.props.clickWriteReview}>WRITE A REVIEW</div>
               </span>
-            </div>
-            <span id='write-review-sort-by'>
+              </div>
+            <div id='write-review-sort-by' className='write-right'>
               <select value={this.state.selectValue} onChange={this.handleChange}>
                 <option value=''>Sort by</option>
                 <option value='newest'>Newest</option>
@@ -306,7 +304,7 @@ class ReviewList extends React.Component {
                 <option value='staff'>Staff Reviews</option>
                 <option value='topContributors'>Top Contributors</option>
               </select>
-            </span>
+            </div>
           </div>
         </div>
         <div className='line-divider'></div>

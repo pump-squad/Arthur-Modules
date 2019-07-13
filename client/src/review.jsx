@@ -93,9 +93,9 @@ var Review = (props) => {
                 <span className='review-unhelpful-number'>{review.unhelpful}</span>
               </div>
             </div>
-            <div className='line-divider'></div>
           </div>
         </div>
+        <div className='line-divider'></div>
       </div>
     )
   } else {

@@ -101,14 +101,15 @@ class App extends React.Component {
 
     if (writeReview) {
       console.log('write Clicked')
-      page = <WriteReview clickWriteReview={this.clickWriteReview} />;
+      page = <WriteReview clickWriteReview={this.clickWriteReview} clickExitWriteReview={this.clickExitWriteReview} />;
     } else {
       console.log('write not Clicked')
       page = <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews} clickWriteReview={this.clickWriteReview} />;
     }
 
     return (
-      <div className='delete-when-integrate'>
+      <div className='holds-bottom'>
+      <div className='holds-review'>
         <div id='search-bar'>
           <Search handleSubmit={this.handleSubmit} getSearchValue={this.getSearchValue} />
         </div>
@@ -130,6 +131,7 @@ class App extends React.Component {
           </div>
         </div>
         {page}
+      </div>
       </div>
     )
   }
