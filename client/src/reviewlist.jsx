@@ -1,5 +1,6 @@
 import React from 'react';
 import Review from './review.jsx';
+import PageList from './pageList.jsx';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -43,7 +44,6 @@ class ReviewList extends React.Component {
         newArray.push(array[i])
       }
     }
-    console.log('newArray highestFilter ', newArray)
     for (var i = 0; i < array.length; i++) {
       if (array[i].starCount === 4) {
         newArray.push(array[i])
@@ -113,7 +113,6 @@ class ReviewList extends React.Component {
   //figure which Sort to Use
   useWhichFilter(array) {
     var value = this.state.selectValue;
-    console.log('inside use which filter value ', value)
     var newArray = [];
     if (value === 'newest') {
       newArray = this.newestFilter(array);
@@ -144,7 +143,6 @@ class ReviewList extends React.Component {
     var holdAllStarCount = 0;
     for (var i = 0; i < array.length; i++){
       if ( typeof(array[i]) !== 'undefined'){
-        console.log('inside get star average ', array[i].starCount)
         holdAllStarCount += array[i].starCount;
       }
     }
@@ -182,7 +180,6 @@ class ReviewList extends React.Component {
         // console.log('updatedList ', updatedList[i])
       }
     }
-    console.log('newupdatedLIst ', updatedList)
     var average = this.getStarAverage(updatedList);
     //will only render objects with current Page value inside of it
     //i can either make a new array or loop through and set it
@@ -316,17 +313,8 @@ class ReviewList extends React.Component {
               )
             })
           }
-          <div className='all-pages' align='center'>
-            {
-              pages.map((page, index) => {
-                return (
-                  <span className='page-number' value={page} key={index} onClick={this.handlePageChange}>{page}</span>
-                )
-              })
-            }
-          </div>
-          <div className='reviewList'></div>
         </div>
+        <PageList pages={pages} handlePageChange={this.handlePageChange}/>
       </div>
     )
   }

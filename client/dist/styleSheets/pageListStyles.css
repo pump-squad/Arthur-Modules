@@ -1,0 +1,11 @@
+.all-pages {
+    color: #666666;
+    font-size: 12px;
+    /* clear: both; */
+    margin: 0;
+    padding: 10px 5px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

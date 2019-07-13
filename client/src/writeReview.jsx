@@ -1,8 +1,8 @@
 import React from 'react';
-import ReviewWordCountZero from './reviewWordCountZero.jsx';
-import ReviewWordCountNonZero from './reviewWordCountNonZero.jsx';
-import WritingGuidelines from './writingGuidelines.jsx';
-import MediaGuidelines from './mediaGuidelines.jsx';
+import ReviewWordCountZero from './writeReviewSubComponents/reviewWordCountZero.jsx';
+import ReviewWordCountNonZero from './writeReviewSubComponents/reviewWordCountNonZero.jsx';
+import WritingGuidelines from './writeReviewSubComponents/writingGuidelines.jsx';
+import MediaGuidelines from './writeReviewSubComponents/mediaGuidelines.jsx';
 
 class WriteReview extends React.Component {
   constructor(props) {

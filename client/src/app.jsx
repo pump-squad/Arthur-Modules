@@ -82,14 +82,14 @@ class App extends React.Component {
   generateRandomReviewNumber() {
     //get random number between 0 - 100
     var count = Math.floor((Math.random() * 100));
-    this.setState({ reviewCount: count }, () => { console.log('Review Count ', count) });
+    this.setState({ reviewCount: count });
   }
 
   clickWriteReview() {
-    this.setState({ writeReviewClicked: true }, () => { 'Write Review Clicked!' })
+    this.setState({ writeReviewClicked: true })
   }
   clickExitWriteReview() {
-    this.setState({ writeReviewClicked: false }, () => { 'Exit Write Review Clicked!' })
+    this.setState({ writeReviewClicked: false })
   }
 
   componentDidMount() {
@@ -100,10 +100,8 @@ class App extends React.Component {
     let page;
 
     if (writeReview) {
-      console.log('write Clicked')
       page = <WriteReview clickWriteReview={this.clickWriteReview} clickExitWriteReview={this.clickExitWriteReview} />;
     } else {
-      console.log('write not Clicked')
       page = <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews} clickWriteReview={this.clickWriteReview} />;
     }
 

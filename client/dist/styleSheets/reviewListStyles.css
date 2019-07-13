@@ -69,8 +69,6 @@
 }
 .write-left{
   width: 50%;
-  /* position: relative;
-  right: 27px; */
 }
 .write-right{
   flex-grow:1;
@@ -80,4 +78,11 @@
 }
 .write-review{
   padding-left: 0;
+}
+.advanced-options-star-rating,
+.advanced-options-fit,
+.advanced-options-age,
+.advanced-options-gender,
+.advanced-options-bodyType {
+  margin-left: 5px;
 }
