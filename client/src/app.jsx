@@ -80,7 +80,6 @@ class App extends React.Component {
   }
   //once I get reviews with api request, create random review count
   generateRandomReviewNumber() {
-
     //get random number between 0 - 100
     var count = Math.floor((Math.random() * 100));
     this.setState({ reviewCount: count }, () => { console.log('Review Count ', count) });
@@ -95,8 +94,6 @@ class App extends React.Component {
 
   componentDidMount() {
   }
-
-
 
   render() {
     const writeReview = this.state.writeReviewClicked;

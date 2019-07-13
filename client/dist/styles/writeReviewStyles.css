@@ -159,7 +159,7 @@
     line-height: 1.5;
     display: block;
     padding-top: 2px;
-    margin-left: 20%;
+    margin-left: 16%;
     width: 400px;
     margin-bottom: 10px; 
 }
@@ -172,6 +172,8 @@
 }
 .review-form-submit {
   display: flex;
+  padding: 15px;
+  padding-left: 6.5%;
 }
 .review-submit-left {
   width: 75%;
@@ -202,12 +204,14 @@
   height: 44px;
   line-height: 44px;
   padding: 0 40px;
+  cursor: pointer;
 }
 #cancel-button{
   background: transparent url(arrowWhite.gif) left center no-repeat;
   padding: 10px 10px;
   text-align: center;
   padding-top: 12px;
+  cursor: pointer;
 }
 #preview-button{
   border: none;
@@ -215,6 +219,7 @@
   height: 44px;
   padding: 10px 10px;
   padding-top: 12px;
+  cursor: pointer;
 }
 .divider {
   padding-left: 5px;
@@ -240,4 +245,10 @@
   padding-left: 1%;
   padding-right: 1.5%;
   text-align: left;
+}
+.gender-age {
+  padding-bottom: 10px;
+}
+.youtube {
+  color: rgb(0, 0, 0);
 }

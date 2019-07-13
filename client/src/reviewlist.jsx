@@ -107,6 +107,7 @@ class ReviewList extends React.Component {
         newArray.push(array[i]);
       }
     }
+    newArray.push(array);
     return newArray;
   }
   //figure which Sort to Use

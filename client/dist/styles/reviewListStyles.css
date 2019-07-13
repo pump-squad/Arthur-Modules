@@ -9,7 +9,7 @@
 .ratings-summary-header-advanced-filter {
   background-color: yellow;
   float: right;
-  right: 700px;
+  /* right: 65%; */
   bottom: 54px;
   position: relative;
   font: 14px;
@@ -22,7 +22,7 @@
 #write-review-sort-by {
   /* right: -114.5px; */
   float: right;
-  position: relative;
+  /* position: relative; */
   bottom: 56px;
   font-family: 'Avenir LT W01 55 Roman',arial,sans-serif;
   color: #555555;
@@ -41,8 +41,8 @@
 
 .fitrating-container-advanced-filter {
   float: right;
-  position: relative;
-  right: 630px;
+  /* position: relative; */
+  /* right: 58.42%; */
   font-size: 12px;
   color: #999999;
 }
@@ -50,8 +50,8 @@
 .star-container-advanced-options {
   font-size: 12px;
   float: right;
-  position: relative;
-  right: 284px;
+  /* position: relative; */
+  /* right: 25.69%; */
 }
 .fitrating-slider-header {
   font: 12px;

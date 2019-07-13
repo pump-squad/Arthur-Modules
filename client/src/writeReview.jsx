@@ -1,18 +1,26 @@
 import React from 'react';
 import ReviewWordCountZero from './reviewWordCountZero.jsx';
 import ReviewWordCountNonZero from './reviewWordCountNonZero.jsx';
+import WritingGuidelines from './writingGuidelines.jsx';
+import MediaGuidelines from './mediaGuidelines.jsx';
 
 class WriteReview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       reviewLength: '',
-      value: ''
+      value: '',
+      clickIReview: false,
+      clickIMedia: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.checkReviewLength = this.checkReviewLength.bind(this);
-    // this.checkReviewWordLength = this.checkReviewWordLength.bind(this);
+    this.clickedIReview = this.clickedIReview.bind(this);
+    this.clickedIMedia = this.clickedIMedia.bind(this);
+    this.clickedIReviewX = this.clickedIReviewX.bind(this);
+    this.clickedIMediaX = this.clickedIMediaX.bind(this);
   }
+
   handleChange(event) {
     this.setState({
       reviewLength: event.target.value.length
@@ -22,23 +30,54 @@ class WriteReview extends React.Component {
   checkReviewLength(length) {
     return 50 - length;
   }
-  // checkReviewWordLength() {
-  //   if (this.state.reviewLength === '') {
-  //     return <ReviewWordCountZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
-  //   } else {
-  //     return <ReviewWordCountNonZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
-  //   }
-  // }
+  clickedIReview(event){
+    event.preventDefault();
+    if (this.state.clickIReview === false){
+      this.setState({ clickIReview: true })
+    } else{
+      this.setState({ clickIReview: false })
+    }
+  }
+  clickedIReviewX(event){
+    if (this.state.clickIReview === true){
+      this.setState({ clickIReview: false })
+    }    
+  }
+  clickedIMediaX(event){
+    if (this.state.clickIMedia === true){
+      this.setState({ clickIMedia: false })
+    }      
+  }
+  clickedIMedia(event){
+    event.preventDefault();
+    if (this.state.clickIMedia === false){
+      this.setState({ clickIMedia: true }, () => { 'I Media True!' })
+    } else {
+      this.setState({ clickIMedia: false }, () => { 'I Media False' })
+    }
+  }
 
   render() {
-
+    //renders reviewWordCountZero or NonZero component
     var reviewWordComponent;
     if (this.state.value.length === 0) {
       reviewWordComponent = <ReviewWordCountZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
     } else {
       reviewWordComponent = <ReviewWordCountNonZero checkReviewLength={this.checkReviewLength} reviewLength={this.state.reviewLength} />
     }
-
+    //checks to see if i is clicked
+    var iComponentW;
+    var iComponentM;
+    if (this.state.clickIReview === true || this.state.clickIMedia === true){
+      //if clickIReview
+      if (this.state.clickIReview === true){
+        iComponentW = <WritingGuidelines clickedIReviewX={this.clickedIReviewX}/>
+      } 
+      if (this.state.clickIMedia === true){
+        iComponentM = <MediaGuidelines clickedIMediaX={this.clickedIMediaX}/>
+      }
+      //if clickIMedia
+    }
     return (
       <div className='write-review'>
         <div className='write-review-header'>
@@ -146,6 +185,12 @@ class WriteReview extends React.Component {
               <span className='title-input-wrapper'>
                 <input className='input-small' type='text' maxLength="150"></input>
               </span>
+              <div>
+              <button className='i-review-button-w' onClick={this.clickedIReview}>
+                <span>i</span>
+              </button>
+              </div>
+              {iComponentW}
             </div>
             <div className='caption'>Example: This product has great features</div>
             <div className='container'>
@@ -199,6 +244,12 @@ class WriteReview extends React.Component {
                   <label></label>
                 </div>
               </span>
+              <div>
+              <button className='i-review-button-m' onClick={this.clickedIMedia}>
+                <span>i</span>
+              </button>
+              </div>
+              {iComponentM}
             </div>
             <div className='caption'>
               6 image max, 5mb max per image
@@ -209,7 +260,7 @@ class WriteReview extends React.Component {
                 <input className='input-small' type='text' maxLength="1024"></input>
               </span>
             </div>
-            <div className='caption'>Paste the URL from your videos on
+            <div className='caption'>Paste the URL from your videos on <span> </span>
             <a href="http://www.youtube.com/" className="youtube" target="_blank">YouTube</a>.
               </div>
             <div className='container'>
@@ -242,7 +293,7 @@ class WriteReview extends React.Component {
               </span>
             </div>
             <div className='caption'>Example: Vancouver, BC</div>
-            <div className='container-subgroup'>
+            <div className='container-subgroup gender-age'>
               <div className='title title-three'>Your Age</div>
               <span className='title-input-wrapper'>
                 <select>
@@ -257,7 +308,7 @@ class WriteReview extends React.Component {
                 </select>
               </span>
             </div>
-              <div className='container'>
+              <div className='container gender-age'>
               <div className='title title-three'>Your Gender</div>
               <div className='rating-radio-gender-gender'>
                 <span>
@@ -270,7 +321,6 @@ class WriteReview extends React.Component {
                 </span>
               </div>
             </div>
-
             <div className='container-subgroup'>
               <div className='title title-three'>Your Body Type</div>
               <div className='fits-radio'>
@@ -326,8 +376,8 @@ class WriteReview extends React.Component {
                     <div className='title-input-wrapper'>
                       <input type='checkbox'></input>
                       <span className='checkbox-caption'>By submitting this review you agree to our
-                      <a className='terms' href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm'>
-                      Terms & Conditions.</a>
+                      <a href="https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm" target="_blank"class='terms'>
+                        Terms &amp; Conditions.</a>
                       <span className="asterisk">*</span>
                     </span>
                     </div>
@@ -340,9 +390,9 @@ class WriteReview extends React.Component {
                   </div> 
                   <div className='review-submit-right'>
                     <div className='review-form-links'>
-                      <div><a href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm'>Terms & Condtions</a></div>
+                      <div><a href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm' target="_blank">Terms & Condtions</a></div>
                       <div className='divider'>|</div>
-                      <div><a href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/guidelines.htm'>Review Guidelines</a></div>
+                      <div><a href='https://arcteryx.ugc.bazaarvoice.com/content/7059-en/guidelines.htm' target="_blank">Review Guidelines</a></div>
                      </div>
                   </div>
                 </div>
