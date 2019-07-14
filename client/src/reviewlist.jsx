@@ -19,6 +19,8 @@ class ReviewList extends React.Component {
     this.topContributorFilter = this.topContributorFilter.bind(this);
     this.useWhichFilter = this.useWhichFilter.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
+    this.handleClickNextPage = this.handleClickNextPage.bind(this);
+    this.handleClickPreviousPage = this.handleClickPreviousPage.bind(this);
     this.getStarAverage = this.getStarAverage.bind(this);
   }
   handleChange(event) {
@@ -139,6 +141,12 @@ class ReviewList extends React.Component {
     this.setState({ currentPage: Number(event.target.innerHTML) })
     console.log('inside handle page change ', Number(event.target.innerHTML));
   }
+  handleClickNextPage(number){
+    this.setState({ currentPage: number + 1 })
+  }
+  handleClickPreviousPage(number){
+    this.setState({ currentPage: number - 1 }, ()=>{console.log(this.state.currentPage-1)})
+  }
   getStarAverage(array){
     var holdAllStarCount = 0;
     for (var i = 0; i < array.length; i++){
@@ -146,7 +154,8 @@ class ReviewList extends React.Component {
         holdAllStarCount += array[i].starCount;
       }
     }
-    return holdAllStarCount/array.length;
+    holdAllStarCount = holdAllStarCount/array.length;
+    return (Math.round(holdAllStarCount * 2) / 2).toFixed(1)
   }
 
   render() {
@@ -157,10 +166,11 @@ class ReviewList extends React.Component {
     }
     //store pages
     var pages = [];
-    var countDivide = Math.floor(reviewCount / 10);
+    var countDivide = Math.ceil(reviewCount / 10);
     for (var i = 1; i <= countDivide; i++) {
       pages.push(i);
     }
+    console.log('Review Count ', reviewCount);
     //update List to whatever filter is clicked
     updatedList = this.useWhichFilter(updatedList);
     //want to go through updatedLIst and add page numbers
@@ -314,7 +324,11 @@ class ReviewList extends React.Component {
             })
           }
         </div>
-        <PageList pages={pages} handlePageChange={this.handlePageChange}/>
+        <PageList pages={pages} 
+        handlePageChange={this.handlePageChange} 
+        handleClickNextPage={this.handleClickNextPage} 
+        currentPage={this.state.currentPage} 
+        handleClickPreviousPage={this.handleClickPreviousPage}/>
       </div>
     )
   }

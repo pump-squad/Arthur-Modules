@@ -1,5 +1,7 @@
 import React from 'react';
 import Page from './page.jsx';
+import NextPage from './nextPage.jsx';
+import PreviousPage from './previousPage.jsx'
 
 class PageList extends React.Component {
   constructor(props){
@@ -8,16 +10,31 @@ class PageList extends React.Component {
     }
   }
   render (){
-    var { pages, handlePageChange } = this.props;
+    var { pages, handlePageChange, handleClickNextPage, currentPage, handleClickPreviousPage } = this.props;
+    var next, previous;
+    console.log('pages length ', pages.length)
+    console.log('current page ', currentPage)
+    if ((currentPage !== pages.length) && (pages.length !== 1)){
+      console.log('inside')
+      next = <NextPage handleClickNextPage={handleClickNextPage} currentPage={currentPage}/>;
+    }
+    if ((currentPage !== 1) && (pages.length !== 1)){
+      previous = <PreviousPage handleClickPreviousPage={handleClickPreviousPage} currentPage={currentPage}/>;
+    };
+
     return (
       <div className='all-pages'>
+        {previous}
         {
         pages.map((page, index) => {
-          return (
-            <Page value={page} key={index} handlePageChange={handlePageChange}/>
-          )
+          console.log('Page CurrentPage ', page, currentPage)
+            return (
+              <Page value={page} key={index} handlePageChange={handlePageChange} currentPage={currentPage}/>
+            )
+        
           })
         }
+        {next}
       </div>
     )
   }

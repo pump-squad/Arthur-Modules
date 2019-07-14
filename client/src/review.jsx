@@ -2,7 +2,6 @@ import React from 'react';
 
 var Review = (props) => {
   var { review } = props;
-  console.log('Review inside review ', review)
   // console.log(typeof(review) === )
   if (typeof (review) !== 'undefined') {
     return (
