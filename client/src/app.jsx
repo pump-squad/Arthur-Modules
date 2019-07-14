@@ -1,33 +1,41 @@
 import React from 'react';
 import Search from './search.jsx';
 import axios from 'axios';
+import ReviewList from './reviewList.jsx';
+import WriteReview from './writeReview.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewCount: 0,
+      reviewCount: '',
       searchValue: '',
-      keyWords: 
-      ['jacket', 'hoody', 'vest', 'coat',
-      'parka', 'zip', 'sweater', 'crew', 
-      'henley', 'shirt', 'tank', 'top',
-      'pant', 'bib', 'tight', 'knicker',
-      'bottom', 'boxer', 'short', 'skort', 
-      'dress'],
-      reviews: []
+      keyWords:
+        ['jacket', 'hoody', 'vest', 'coat',
+          'parka', 'zip', 'sweater', 'crew',
+          'henley', 'shirt', 'tank', 'top',
+          'pant', 'bib', 'tight', 'knicker',
+          'bottom', 'boxer', 'short', 'skort',
+          'dress'],
+      reviews: [],
+      writeReviewClicked: false
     }
-    //create onSubmit to handle Submit Functionality in SearchBar Component
+    // create onSubmit to handle Submit Functionality in SearchBar Component
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getSearchValue = this.getSearchValue.bind(this);
     this.generateNameGenderAfterSubmit = this.generateNameGenderAfterSubmit.bind(this);
     this.get = this.get.bind(this);
+    this.generateRandomReviewNumber = this.generateRandomReviewNumber.bind(this);
+    this.clickWriteReview = this.clickWriteReview.bind(this);
+    this.clickExitWriteReview = this.clickExitWriteReview.bind(this);
   }
+
   handleSubmit(event) {
     event.preventDefault();
     console.log('Current SearchValue ', this.state.searchValue);
     //will fire off get request
     this.get();
+    this.generateRandomReviewNumber();
   }
 
   getSearchValue(value) {
@@ -35,8 +43,8 @@ class App extends React.Component {
       searchValue: value
     });
   }
-  //get values needed for api request from search input value
-  generateNameGenderAfterSubmit(value){
+  //get value needed for api request from search input value
+  generateNameGenderAfterSubmit(value) {
     //hold name and gender
     var data = {
       name: '',
@@ -44,99 +52,84 @@ class App extends React.Component {
     }
     var keyWord = this.state.keyWords;
     //check name
-    for (var i = 0; i < keyWord.length; i++){
-      if (value.indexOf(keyWord[i]) !== -1){
+    for (var i = 0; i < keyWord.length; i++) {
+      if (value.indexOf(keyWord[i]) !== -1) {
         data.name = keyWord[i];
         break;
       }
     }
-    //check gender
-    if (value.indexOf('men') !== -1){
-      data.gender = 'men';
-    } else if (value.indexOf('women') !== -1){
-      data.gender = 'women';
+    //check gender and change values to male or female
+    //b/c these values are what is stored in our db
+    if (value.indexOf('men') !== -1) {
+      data.gender = 'male';
+    } else if (value.indexOf('women') !== -1) {
+      data.gender = 'female';
     }
     return data;
   }
-  get(){
+  get() {
     var queryInfo = this.generateNameGenderAfterSubmit(this.state.searchValue);
     console.log('Name and gender ', queryInfo.name, queryInfo.gender);
-    axios.get('/reviews/product', {
-      params: {
-        name: `${queryInfo.name}`,
-        gender: `${queryInfo.gender}`,
-      }
-    })
-    .then((data) => {
-      this.setState({ reviews: data.data }, () => {console.log('Data ', this.state.reviews)})
-    })
-    .catch((err) => {
-      console.log('get Request Failed ', err)
-    })
+    axios.get(`/reviews/product/${queryInfo.name}/${queryInfo.gender}`)
+      .then((data) => {
+        this.setState({ reviews: data.data }, () => { console.log('Data ', data.data) })
+      })
+      .catch((err) => {
+        console.log('get Request Failed ', err)
+      })
   }
+  //once I get reviews with api request, create random review count
+  generateRandomReviewNumber() {
+    //get random number between 0 - 100
+    var count = Math.floor((Math.random() * 100));
+    this.setState({ reviewCount: count });
+  }
+
+  clickWriteReview() {
+    this.setState({ writeReviewClicked: true })
+  }
+  clickExitWriteReview() {
+    this.setState({ writeReviewClicked: false })
+  }
+
+  componentDidMount() {
+  }
+
   render() {
+    const writeReview = this.state.writeReviewClicked;
+    let page;
+
+    if (writeReview) {
+      page = <WriteReview clickWriteReview={this.clickWriteReview} clickExitWriteReview={this.clickExitWriteReview} />;
+    } else {
+      page = <ReviewList reviewCount={this.state.reviewCount} reviews={this.state.reviews} clickWriteReview={this.clickWriteReview} />;
+    }
+
     return (
-      <div className='delete-when-integrate'>
+      <div className='holds-bottom'>
+      <div className='holds-review'>
         <div id='search-bar'>
-          <Search handleSubmit={this.handleSubmit} getSearchValue={this.getSearchValue}/>
+          <Search handleSubmit={this.handleSubmit} getSearchValue={this.getSearchValue} />
         </div>
         <div id='product-reviews'>
-          <div className='accordion_title'>
+          <div className='accordion-title'>
             <h2>
               PRODUCT REVIEWS
-          <span className='product-title_star_fg'>
+              <span className='product-title-star-img'>
                 Stars
-            <span className='product-title_star_fg'></span>
+                <span className='product-title-star-img'></span>
+                <span className='product-title-total-rating'>{`(${this.state.reviewCount})`}</span>
               </span>
-              <span className='product-title_total-rating'>{`(${this.state.reviewCount})`}</span>
             </h2>
-            <button className='accordion_toggle'>
+            <button className='accordion-toggle' onClick={this.clickExitWriteReview}>
               <span>
                 X
             </span>
             </button>
           </div>
-          <div className='ratings-summary'>
-            <div className='ratings-summary_title'>
-              <h4>Ratings Summary</h4>
-            </div>
-            <div>
-              {/*holds image of stars*/}
-              <img></img>
-            </div>
-            <div className='fitrating-slider'>
-              <div className='fitrating-slider_header'>
-                Fit:
-            </div>
-              <div className='fitrating-slider_label1'>
-                Fits Small
-            </div>
-              <div className='fitrating-slider_image'>
-                <img></img>
-              </div>
-              <div className='fitrating-slider_label2'>
-                Fits Large
-            </div>
-            </div>
-          </div>
-          <div className='write-review'>
-            <span id='write-review_button'>
-              <button>WRITE A REVIEW</button>
-            </span>
-            <span id='write-review_sort_by'>
-              <select>
-                <option>Sort by</option>
-                <option>Newest</option>
-                <option>Oldest</option>
-                <option>Highest Rating</option>
-                <option>Lowest Rating</option>
-                <option>Most helpful</option>
-                <option>Staff Reviews</option>
-                <option>Top Contributors</option>
-              </select>
-            </span>
-          </div>
         </div>
+        {page}
+      </div>
       </div>
     )
   }
