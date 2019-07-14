@@ -81,12 +81,11 @@
 }
 .review-postComment {
   padding: 5px, 5px, 5px;
+  width: 800px;
+  cursor: pointer;
 }
 .review-footer {
   display: flex;
-}
-.review-postComment {
-  width: 800px;
 }
 .review-helpful-unhelpful {
   flex-grow: 1;
@@ -107,6 +106,15 @@
 .review-unhelpful-number {
   padding-right: 5px;
   padding-left: 5px;
+}
+.button-helpful,
+.button-unhelpful {
+  text-decoration: none;
+    color: #666666;
+    line-height: 20px;
+    height: 20px;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
 

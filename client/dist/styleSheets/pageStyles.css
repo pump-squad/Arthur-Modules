@@ -2,7 +2,7 @@
   padding: 3px;
   text-decoration: underline;
   text-align: center;
-  
+  cursor: pointer;
 }
 .page-number-clicked {
   font-weight: bold;

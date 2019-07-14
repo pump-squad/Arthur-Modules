@@ -329,6 +329,9 @@ class ReviewList extends React.Component {
         handleClickNextPage={this.handleClickNextPage} 
         currentPage={this.state.currentPage} 
         handleClickPreviousPage={this.handleClickPreviousPage}/>
+
+        <div className='line-divider'></div>
+
       </div>
     )
   }

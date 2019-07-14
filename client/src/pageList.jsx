@@ -1,7 +1,7 @@
 import React from 'react';
-import Page from './page.jsx';
-import NextPage from './nextPage.jsx';
-import PreviousPage from './previousPage.jsx'
+import Page from './pageListSubComponents/page.jsx';
+import NextPage from './pageListSubComponents/nextPage.jsx';
+import PreviousPage from './pageListSubComponents/previousPage.jsx'
 
 class PageList extends React.Component {
   constructor(props){

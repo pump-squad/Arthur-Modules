@@ -82,14 +82,16 @@ var Review = (props) => {
               <div className='review-helpful'>
                 {/*put uhelpful thumbs up*/}
                 <span className='review-helpful-image'></span>
-                <span>helpful</span>
+                <span className='button-helpful'>helpful
                 <span className='review-helpful-number'>{review.helpful}</span>
+                </span>
               </div>
               <div className='review-unhelpful'>
                 {/*put unhelpful thumbs down*/}
                 <span className='review-unhelpful_image'></span>
-                <span>unhelpful</span>
+                <span className='button-unhelpful'>unhelpful
                 <span className='review-unhelpful-number'>{review.unhelpful}</span>
+                </span>
               </div>
             </div>
           </div>
