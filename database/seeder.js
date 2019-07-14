@@ -42,8 +42,9 @@ for (var i = 0; i < 800; i++) {
     activity: functions.getActivity(),
     pros: functions.getPros(stars),
     cons: functions.getCons(stars),
-    recommend: functions.getRecommend(stars),
-    helpful: functions.getHelpful(stars),
+    recommended: functions.getRecommend(stars),
+    helpful: functions.createHelpful(),
+    unhelpful: functions.createUnhelpful(),
     date: functions.createNewDate(),
     language: functions.getLanguage(),
     subComments: [],
@@ -56,4 +57,3 @@ for (var i = 0; i < 800; i++) {
     tag: functions.createTag()
   })
 }
-

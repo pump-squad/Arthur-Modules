@@ -1,0 +1,88 @@
+.ratings-summary-header,
+.star-container,
+.fitrating-container {
+  display: flex;
+  padding-bottom: 3px;
+}
+.ratings-summary-header-title,
+.star-container-stars,
+.fitrating-slider {
+  width: 200px;
+}
+.ratings-summary-header-advanced-filter,
+.star-container-advanced-options,
+.fitrating-container-advanced-filter {
+  font: 14px;
+  flex-grow: 1;
+}
+#write-review-sort-by {
+  font-family: 'Avenir LT W01 55 Roman',arial,sans-serif;
+  color: #555555;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+#write-review-button {
+    font: normal 15px/30px 'Avenir LT W01 65 Medium', arial, sans-serif;
+    color: white;
+    background: rgba(0,0,0,0.75);
+    padding: 10px 10px 10px 10px;
+    height: 36px;
+    width: 130px;
+}
+.fitrating-container-advanced-filter {
+  font-size: 12px;
+  color: #999999;
+}
+.star-container-advanced-options {
+  font-size: 12px;
+}
+.fitrating-slider-header {
+  font: 12px;
+  float: left;
+  font-family: 'Avenir LT W01 55 Roman',arial,sans-serif;
+  margin: 0px 5px 5px 0px;
+}
+.fitrating-slider-label1 {
+  font-style: italic;
+  color: #999999;
+  font-size: 9px;
+  float: left;
+  padding: 2px 8px 0px 0px;
+}
+.fitrating-slider-label2 {
+  font-style: italic;
+  color: #999999;
+  font-size: 9px;
+  float: left;
+  padding: 2px 0px 0px 8px;
+}
+.line-divider{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;  
+}
+.header-container{
+  display: flex;
+}
+.write-left{
+  width: 50%;
+}
+.write-right{
+  flex-grow:1;
+  position: relative;
+  float: right;
+  right: -37.9%;
+}
+.write-review{
+  padding-left: 0;
+}
+.advanced-options-star-rating,
+.advanced-options-fit,
+.advanced-options-age,
+.advanced-options-gender,
+.advanced-options-bodyType {
+  margin-left: 5px;
+}

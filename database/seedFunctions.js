@@ -114,7 +114,7 @@ var getRecommend = (starCount) => {
   var count = Math.round((Math.random() * (1 - 10) + 10));
   if (starCount => 4) {
     if (count < 6) {
-      return rec[0]
+      return rec[0];
     } else {
       return rec[1];
     }
@@ -123,17 +123,23 @@ var getRecommend = (starCount) => {
   }
 }
 
-var getHelpful = (starCount) => {
-  var helpful = seedData.helpfulList;
+var createHelpful = () => {
   var count = Math.round((Math.random() * (1 - 10) + 10));
-  if (starCount => 4) {
-    if (count < 6) {
-      return helpful[0]
-    } else {
-      return helpful[1];
-    }
+  var helpCount = Math.round((Math.random() * (1 - 20) + 20));
+  if (count < 6) {
+    return helpCount;
   } else {
-    return helpful[1];
+    return 0;
+  }
+}
+
+var createUnhelpful = () => {
+  var count = Math.round((Math.random() * (1 - 10) + 10));
+  var unhelpCount = Math.round((Math.random() * (1 - 10) + 10));
+  if (count < 4) {
+    return unhelpCount;
+  } else {
+    return 0;
   }
 }
 
@@ -251,10 +257,11 @@ module.exports = {
   createBodyType,
   createFit,
   createTag,
+  createUnhelpful,
+  createHelpful,
   //getStarCount dependent
   getTitle,
   getPros,
   getCons,
   getRecommend,
-  getHelpful
 }

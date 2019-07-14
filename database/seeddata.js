@@ -39,8 +39,6 @@ var consList =
     'not many color choices', 'too big', 'falling apart', 'not long lasting'];
 //recommended //yes or no
 var recommendedList = ['yes', 'no'];
-//helpful // yes or no
-var helpfulList = ['yes', 'no'];
 
 var languageList =
   ['English', 'German', 'Danish', 'Spanish',
@@ -62,7 +60,6 @@ module.exports = {
   prosList,
   consList,
   recommendedList,
-  helpfulList,
   languageList,
   ageList,
   bodyTypeList,

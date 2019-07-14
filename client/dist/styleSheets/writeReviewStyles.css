@@ -1,0 +1,258 @@
+.write-review-product-descrip {
+  color: #555555;
+}
+.write-review{
+  font-family: 'Avenir LT W01 55 Roman',arial,sans-serif;
+  font-size: 14px;
+}
+.write-review-header-title{
+  font-size: 18px;
+  font-weight: bold;
+  line-height: normal;
+  margin-bottom: 10px;
+  display: block;
+}
+.write-review-header-product-info{
+  display: flex;
+}
+.write-review-header-product-left{
+  width: 10%;
+}
+.write-review-header-product-right{
+  flex-grow: 1;
+}
+.review-form-header-title,
+.review-form-tell-us-title,
+.review-form-share-title,
+.review-form-about-you-title {
+ color: rgb(0, 0, 0);
+ font-family: "Avenir LT W01 55 Roman", arial, sans-serif;
+ font-size: 18px;
+ font-weight: bold;
+ line-height: 1.5;
+ margin: 0 0 15px;
+ padding: 0 0 5px;
+}
+.big-asterisk {
+  color: rgb(204, 0, 0);
+  font-size: 14px;
+}
+.review-form-rating-header {
+  display: flex;
+}
+.review-form-rating-header-required{
+  flex-grow: 1;
+  display: flex;
+}
+.big-asterisk-left{
+  width: 200%;
+}
+.big-asterisk {
+  flex-grow: 1;
+}
+.asterisk {
+  color: #CC0000;
+}
+.input-big{
+  padding: 10px;
+  width: 400px;
+  font-size: 14px;
+  border-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    resize: none;
+}
+.review-form-rating-stars,
+.recommend-container,
+.review-form-rating-fits,
+.review-form-title,
+.container,
+.container-subgroup,
+.review-form-send-email {
+  display: flex;
+}
+.review-form-rating-left,
+.i-recommend,
+.review-fits,
+.title,
+.send-email-left{
+  width: 15%;
+}
+.overall-star-container,
+.recommend-radio-container,
+.rating-radio,
+.title-input-wrapper,
+.review-body-text{
+  flex-grow:1;
+  padding-left: 1%;
+}
+.review-body{
+  flex-grow:1;
+}
+.overall-rating,
+.i-recommend,
+.review-fits,
+.title {
+  text-align: right;
+  padding-top: 7px;
+}
+.review-form-rating-stars {
+  padding-bottom: 2%;
+}
+.recommend-container,
+.fits-radio {
+  padding-bottom: 1%;
+}
+.review-form-rating-recommend-yes,
+.review-form-rating-recommend-no,
+.gender-male,
+.gender-female{
+  padding-left: 0.5%;
+}
+.no-container,
+.rating-radio-gender,
+.rating-radio-gender-gender{
+  padding-left: 1%;
+}
+.input-small{
+  padding: 10px;
+  width: 400px;
+  font-size: 14px;
+  border-style: solid;
+    border-width: 1px;
+    border-color: #CCCCCC;
+}
+.recommend-radio-container,
+.fits-radio{
+  font-size: 12px;
+}
+.fits-radio{
+  display: flex;
+  flex-flow: row wrap;
+  width: 425px;
+}
+.fits-radio label,
+.rating-radio-gender label,
+.rating-radio label{
+  display: inline-block;
+  text-align: center;
+}
+.fits-radio input,
+.rating-radio input,
+.rating-radio label {
+  display: block;
+  margin: 0.5em auto;
+}
+/* .radio-gray{
+  width: 10px;
+  height:10px;
+  margin-top: 9px;
+  background-image: linear-gradient(top, white, white 60%, transparent 40%, transparent 100%);
+  background-image: -webkit-linear-gradient(top, gray, gray 50%, transparent 40%, transparent 100%)
+} */
+
+.caption {
+  color: #999999;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.5;
+    display: block;
+    padding-top: 2px;
+    margin-left: 16%;
+    width: 400px;
+    margin-bottom: 10px; 
+}
+.small {
+  width: 66px;
+}
+.container-subgroup,
+.review-form-send-email {
+  padding-bottom: 10px;
+}
+.review-form-submit {
+  display: flex;
+  padding: 15px;
+  padding-left: 6.5%;
+}
+.review-submit-left {
+  width: 70%;
+  display: flex;
+  flex-flow: row wrap;
+}
+.review-submit-right {
+  flex-grow: 1;
+}
+.review-form-links{
+  display: flex;
+  flex-flow: row wrap;
+  flex-grow:1;
+  padding-top: 12px;
+}
+a:visited { text-decoration: none; color:black; }
+
+#submit-button {
+  display: inline-block;
+  background-color: #000000;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  *display: inline;
+  zoom: 1;
+  color: #FFFFFF;
+  font-family: 'Avenir LT W01 55 Roman',arial,sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 40px;
+  cursor: pointer;
+}
+#cancel-button{
+  background: transparent url(arrowWhite.gif) left center no-repeat;
+  padding: 10px 10px;
+  text-align: center;
+  padding-top: 12px;
+  cursor: pointer;
+}
+#preview-button{
+  border: none;
+  display: inline-block;
+  height: 44px;
+  padding: 10px 10px;
+  padding-top: 12px;
+  cursor: pointer;
+}
+.divider {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.preview-button{
+  text-transform: underline;
+}
+.terms {
+  padding-left: 5px;
+}
+.title-five {
+  padding-top: 0px;
+}
+.title-three {
+  padding-top: 1px;
+}
+.rating-radio-gender-gender{
+  width: 200px;
+}
+.gender-male,
+.gender-female{
+  padding-left: 1%;
+  padding-right: 1.5%;
+  text-align: left;
+}
+.gender-age {
+  padding-bottom: 10px;
+}
+.youtube {
+  color: rgb(0, 0, 0);
+}
+.write-review-product-name {
+  padding-bottom: 15px;
+}

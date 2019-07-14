@@ -11,7 +11,8 @@ var reviewSchema = new mongoose.Schema({
   pros: String,
   cons: String,
   recommended: String,
-  helpful: String,
+  helpful: Number,
+  unhelpful: Number,
   date: String,
   language: String,
   subComments: [],
@@ -28,4 +29,3 @@ var reviewSchema = new mongoose.Schema({
 var Review = db.model('Review', reviewSchema);
 
 module.exports = Review;
-
