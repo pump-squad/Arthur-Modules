@@ -17,7 +17,10 @@
   float: right;
   position: relative;
   outline: none;
-  color: blue;
+  color: black;
+  background: none;
+  border: none;
+  font-weight: bold;
 }
 .holds-review{
   margin: 0 15%;

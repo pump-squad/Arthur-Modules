@@ -1,0 +1,44 @@
+.footer {
+  font-family: "Avenir LT W01 65 Medium", arial, sans-serif;
+  font-size: 13px;  
+}
+
+.footer-first {
+  display: flex;
+  padding-top: 50px;
+}
+.footer-row {
+  padding: 0 0 13px 13px;
+}
+.footer-column {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.footer-row-last{
+  display: flex;
+}
+.footer-row-last div {
+  padding-left: 5px;
+}
+#app-img {
+  padding-right: 5px;
+}
+.footer-row-final{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+.link-divider {
+  padding: 0 5px;
+}
+.footer-arcteryx {
+  text-decoration: underline;
+}
+.footer-row-final {
+  padding-top: 15px;
+}
+.footer-final{
+  padding-bottom: 25px;
+}

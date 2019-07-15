@@ -1,4 +1,57 @@
 //Comments Section in Schrema
+//product info
+var menProductList = {
+  'Jacket':
+  {
+    name: "Epsilon Jacket Men's", 
+    image: "",
+    description: "Versatile clothing for trekking and hiking with comfortable waterproof breathable protection features."
+  },
+  'Pants':
+  {
+    name: "Delta Pants Men's",
+    image: "",
+    description: "Lightweight, multi-purpose, and durable softshell pants designed for a range of outdoor activities"
+  },
+  'Shirt':
+  {
+    name: "Beta Shirt Men's",
+    image: "",
+    description: "Lightweight, durable softshell pants designed for a range of outdoor activities"
+  },
+  'Shorts':
+  {
+    name: "Gamma Shorts Men's",
+    image: "",
+    description: "Comfy and strecthable pants for any occasion. Provides ample pocket space"
+  }
+}
+var womenProductList = {
+  'Jacket':
+  {
+    name: "Sigma Jacket Women's",
+    image: "",
+    description: "Versatile clothing for trekking and hiking with comfortable waterproof breathable protection features."
+  },
+  'Shirt':
+  {
+    name: "Capricon Shirt Women's",
+    image: "",
+    description: "Lightweight, multi-purpose, and durable softshell pants designed for a range of outdoor activities"
+  },
+  'Pants':
+  {
+    name: "Pices Pants Women's",
+    image: "",
+    description: "Lightweight, durable softshell pants designed for a range of outdoor activities"
+  },
+  'Shorts':
+  {
+    name: "Leo Shorts Women's",
+    image: "",
+    description: "Versatile clothing for trekking and hiking with comfortable waterproof breathable protection features."
+  }
+}
 //title
 var titleList = {
   positive:
@@ -54,8 +107,9 @@ var fitList = ['Fits Very Small', 'Fits Small', 'True to Size', 'Fits Large', 'F
 var tagList = ['Top10', 'Top50', 'Top100', 'Top500', 'EnterDraw'];
 
 module.exports = {
+  menProductList,
+  womenProductList,
   titleList,
-  // commentList,
   activityList,
   prosList,
   consList,

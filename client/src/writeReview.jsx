@@ -87,7 +87,7 @@ class WriteReview extends React.Component {
           <div className='write-review-header-product-info'>
             <div className='write-review-header-product-left'>
               <div className='write-review-header-product-image'>
-                'Image'
+                PrIMG
               </div>
             </div>
             <div className='write-review-header-product-right'>
@@ -119,12 +119,7 @@ class WriteReview extends React.Component {
                     <span className='asterisk'>*</span></div>
                 </div>
                 <div className='overall-star-container'>
-                  {/*Put in star image*/}
-                  <span>S</span>
-                  <span>S</span>
-                  <span>S</span>
-                  <span>S</span>
-                  <span>S</span>
+                    STR-IMG
                 </div>
               </div>
               <div className='review-form-rating-recommend'>
@@ -239,9 +234,9 @@ class WriteReview extends React.Component {
             <div className='container'>
               <div className='title title-three'>Upload Your Images</div>
               <span className='title-input-wrapper'>
-                <div>
+                <div className='file-upload'>
                   <button onClick={()=>{event.preventDefault()}}>Choose File</button>
-                  <label></label>
+                  <label><span> </span>No file selected.</label>
                 </div>
               </span>
               <div>
@@ -376,7 +371,7 @@ class WriteReview extends React.Component {
                     <div className='title-input-wrapper'>
                       <input type='checkbox'></input>
                       <span className='checkbox-caption'>By submitting this review you agree to our
-                      <a href="https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm" target="_blank" class='terms'>
+                      <a href="https://arcteryx.ugc.bazaarvoice.com/content/7059-en/termsandconditions.htm" target="_blank" className='terms'>
                         Terms &amp; Conditions.</a>
                       <span className="asterisk">*</span>
                     </span>
@@ -397,8 +392,8 @@ class WriteReview extends React.Component {
                   </div>
                 </div>
           </div>  
-          <div className='line-divider'></div>
         </form>
+        <div className='line-divider'></div>
   </div>
     )
   }

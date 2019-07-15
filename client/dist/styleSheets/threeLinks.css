@@ -1,0 +1,49 @@
+.three-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 150px;
+  text-align: center;
+  min-height: 180px;
+  margin: 0 1.5% 70px 0;
+}
+.find-a-store-image,
+.be-the-first-to-know-image,
+.customer-support-image {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+  display: block;
+  font-size: 50px;
+  color: #333;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.three-links-title {
+  display: inline-block;
+  padding: 0 0 10px;
+}
+.three-links-p {
+  padding: 0 50px 20px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.2em;
+}
+.three-links-underline {
+  color: #333;
+  font-size: 15px;
+}
+a:link {
+  color: black;
+}
+/* visited link */
+a:visited {
+  color: black;
+}
+.links {
+  text-decoration: none;
+}

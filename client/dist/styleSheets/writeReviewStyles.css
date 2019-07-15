@@ -1,3 +1,6 @@
+.review-form {
+  padding-bottom: 40px;
+}
 .write-review-product-descrip {
   color: #555555;
 }
@@ -181,6 +184,7 @@
 }
 .review-submit-right {
   flex-grow: 1;
+  font-size: 12px;
 }
 .review-form-links{
   display: flex;
@@ -255,4 +259,13 @@ a:visited { text-decoration: none; color:black; }
 }
 .write-review-product-name {
   padding-bottom: 15px;
+}
+.checkbox-caption{
+  font-size: 11px;
+}
+.terms{
+  font-size:11px;
+}
+.file-upload {
+  font-size: 10px;
 }

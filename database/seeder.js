@@ -1,6 +1,6 @@
 const functions = require('./seedFunctions');
 const Review = require('./model.js');
-
+const seedData = require('./seeddata.js')
 // Men's Clothing
 // Id 0-99 - Jacket
 // Id 100-199 Shirt
@@ -33,8 +33,22 @@ for (var i = 0; i < 800; i++) {
   } else {
     genderT = 'Female'
   }
+  var name, image, descrip;
+  if (genderT = 'Male'){
+    name = seedData.menProductList[clothing].name;
+    image = seedData.menProductList[clothing].image;
+    descrip = seedData.menProductList[clothing].description;
+  } else {
+    name = seedData.womenProductList[clothing].name;
+    image = seedData.womenProductList[clothing].image;
+    descrip = seedData.womenProductList[clothing].description;
+  }
+
   Review.create({
     id: i,
+    productName: name,
+    productImage: image,
+    productDescription: descrip,
     clothingType: clothing,
     starCount: stars,
     title: functions.getTitle(stars),

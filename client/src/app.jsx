@@ -3,6 +3,8 @@ import Search from './search.jsx';
 import axios from 'axios';
 import ReviewList from './reviewList.jsx';
 import WriteReview from './writeReview.jsx';
+import ThreeLinks from './threeLinks.jsx';
+import Footer from './footer.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -92,9 +94,6 @@ class App extends React.Component {
     this.setState({ writeReviewClicked: false })
   }
 
-  componentDidMount() {
-  }
-
   render() {
     const writeReview = this.state.writeReviewClicked;
     let page;
@@ -107,29 +106,31 @@ class App extends React.Component {
 
     return (
       <div className='holds-bottom'>
-      <div className='holds-review'>
-        <div id='search-bar'>
-          <Search handleSubmit={this.handleSubmit} getSearchValue={this.getSearchValue} />
-        </div>
-        <div id='product-reviews'>
-          <div className='accordion-title'>
-            <h2>
-              PRODUCT REVIEWS
-              <span className='product-title-star-img'>
-                Stars
-                <span className='product-title-star-img'></span>
-                <span className='product-title-total-rating'>{`(${this.state.reviewCount})`}</span>
-              </span>
-            </h2>
-            <button className='accordion-toggle' onClick={this.clickExitWriteReview}>
-              <span>
-                X
-            </span>
-            </button>
+        <div className='holds-review'>
+          <div id='search-bar'>
+            <Search handleSubmit={this.handleSubmit} getSearchValue={this.getSearchValue} />
           </div>
-        </div>
-        {page}
-      </div>
+          <div id='product-reviews'>
+            <div className='accordion-title'>
+              <h2>
+                PRODUCT REVIEWS
+              <span className='product-title-star-img'>
+                  StarIMG
+                <span className='product-title-star-img'></span>
+                  <span className='product-title-total-rating'>{`(${this.state.reviewCount})`}</span>
+                </span>
+              </h2>
+              <button className='accordion-toggle' onClick={this.clickExitWriteReview}>
+                <span>X</span>
+              </button>
+            </div>
+          </div>
+          {page}
+          {/*Container for 3 links and footer*/}
+          <ThreeLinks />
+          </div>
+        <div className='line-divider'></div>
+        <Footer />
       </div>
     )
   }
