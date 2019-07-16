@@ -2,10 +2,10 @@
   font-family: "Avenir LT W01 65 Medium", arial, sans-serif;
   font-size: 13px;  
 }
-
 .footer-first {
   display: flex;
   padding-top: 50px;
+  justify-content: center;
 }
 .footer-row {
   padding: 0 0 13px 13px;

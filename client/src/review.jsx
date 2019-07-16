@@ -24,8 +24,8 @@ var Review = (props) => {
                 </div>
                 <div className='review-activity'>
                   <span className='activity-actual'>
-                    <span className='word-activity'>Activity: </span>
-                    <span>{review.activity}</span>
+                    <span className='word-activity'>Activity </span>
+                    <span className='activities'>{review.activity}</span>
                   </span>
                 </div>
                 <div className='review-pros'>
@@ -79,6 +79,9 @@ var Review = (props) => {
               <span>{/*Post Comment Icon*/} Post Comment</span>
             </div>
             <div className='review-helpful-unhelpful'>
+              <div className='review-empty'>
+              
+              </div>
               <div className='review-helpful'>
                 {/*put uhelpful thumbs up*/}
                 <span className='review-helpful-image'></span>

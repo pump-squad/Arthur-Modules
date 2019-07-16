@@ -24,10 +24,13 @@
   font-size: 12px;
   line-height: 1.5em;
 }
-.word-activity, 
 .pros-actual, 
-.cons-actual {
+.cons-actual,
+.activities {
   font-weight: bold;
+}
+.activities {
+  padding-left: 3.5px;
 }
 .review-container {
   display: flex;
@@ -44,6 +47,7 @@
   font-size: 14px;
   font-weight: bold;
   text-decoration: underline;
+  padding-bottom: 5px;
 }
 .review-fitrating-fit-label, 
 .review-fitrating-slider-label1,
@@ -93,19 +97,29 @@
   text-align: right;
   padding-top: 5px;
 }
+.review-empty {
+  width: 150px;
+}
 .review-helpful {
   width: 325px;
   text-align: right;
   padding-right: 5px;
+  /* border-style: solid; */
+  width: 35px;
+  border: solid;
 }
 .review-unhelpful {
   flex-grow: 1;
   padding-right: 5px;
+  /* border-style: solid; */
+  width: 35px;
+  border: solid;
 }
 .review-helpful-number,
 .review-unhelpful-number {
   padding-right: 5px;
   padding-left: 5px;
+  font-weight: bold;
 }
 .button-helpful,
 .button-unhelpful {
